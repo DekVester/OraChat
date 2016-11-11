@@ -28,19 +28,41 @@
             </objects>
             <point key="canvasLocation" x="84" y="-74"/>
         </scene>
-        <!--Chats-->
+        <!--Chats Navigation-->
         <scene sceneID="ap8-db-8MW">
             <objects>
-                <navigationController id="sLQ-Wj-Hb2" sceneMemberID="viewController">
+                <navigationController id="sLQ-Wj-Hb2" userLabel="Chats Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Chats" id="dF7-Hj-Y4b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hcm-n4-svT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="FN7-gZ-V1A" kind="relationship" relationship="rootViewController" id="DsA-m4-UOc"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ql0-nG-Pko" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="921" y="-74"/>
+        </scene>
+        <!--Chats-->
+        <scene sceneID="Yhh-g0-nYh">
+            <objects>
+                <tableViewController id="FN7-gZ-V1A" userLabel="Chats" customClass="ChatsViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kQI-p4-Qod">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="FN7-gZ-V1A" id="9hl-g5-RE1"/>
+                            <outlet property="delegate" destination="FN7-gZ-V1A" id="nFi-L7-gBA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="OraChat" id="B2k-Is-Mk7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AaO-ru-KI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="-74"/>
         </scene>
         <!--Account Navigation-->
         <scene sceneID="rIJ-Sp-ZeB">

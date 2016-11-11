@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */; };
 		32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D5C1DD50D24001DC6AA /* AppDelegate.swift */; };
 		32361D641DD50D25001DC6AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32361D621DD50D25001DC6AA /* Main.storyboard */; };
 		32361D661DD50D25001DC6AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32361D651DD50D25001DC6AA /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		32361D591DD50D24001DC6AA /* OraChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32361D5C1DD50D24001DC6AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32361D631DD50D25001DC6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3215F5BC1DD6521000E05BDA /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
 		32361D501DD50D24001DC6AA = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 				32361D5C1DD50D24001DC6AA /* AppDelegate.swift */,
 				32C9841F1DD5CD860062FA44 /* Authorization */,
 				32361D621DD50D25001DC6AA /* Main.storyboard */,
+				3215F5BC1DD6521000E05BDA /* Chats */,
 				32FFD0791DD6466B0056A2CD /* AccountViewController.swift */,
 				32C9844E1DD5FF000062FA44 /* TextFieldTable */,
 				32361D861DD51360001DC6AA /* TableManager.swift */,
@@ -276,6 +287,7 @@
 				32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */,
 				32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */,
 				32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */,
+				3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */,
 				32C984541DD5FF000062FA44 /* TextFieldTableManager.swift in Sources */,
 				32FFD0821DD646DB0056A2CD /* AuthenticationInfo+View.swift in Sources */,
 				32C984571DD5FF000062FA44 /* TextFieldTableRepresentable.swift in Sources */,
