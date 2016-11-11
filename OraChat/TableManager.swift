@@ -1,5 +1,5 @@
 //
-//  TableDataSource.swift
+//  TableManager.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/10/16.
@@ -9,19 +9,26 @@
 import UIKit
 
 
-class TableDataSource<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource {
+class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-	typealias TableDataSourceConfigure = ((Cell, Item) -> Void)
+	typealias TableManagerConfigure = (Cell, Item) -> Void
+	typealias TableManagerSelect = () -> Void
 	
 	let items: [Item]
-	let configure: TableDataSourceConfigure
 	
-	init(items someItems: [Item], configure aConfigure: @escaping TableDataSourceConfigure) {
+	var configure: TableManagerConfigure!
+	var select: TableManagerSelect?
+	
+	init(table: UITableView, items someItems: [Item]) {
 		
 		items = someItems
-		configure = aConfigure
 		
 		super.init()
+		
+		table.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
+
+		table.dataSource = self
+		table.delegate = self
 	}
 	
 	//MARK:- Cell properties
