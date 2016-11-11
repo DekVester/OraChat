@@ -12,6 +12,11 @@
 		3215F5C21DD6545E00E05BDA /* ChatTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */; };
 		3215F5C41DD6548600E05BDA /* ChatsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5C31DD6548600E05BDA /* ChatsTableManager.swift */; };
 		3215F5C61DD654B800E05BDA /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5C51DD654B800E05BDA /* Chat.swift */; };
+		3215F5D51DD65E4700E05BDA /* MessagesTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5D11DD65E4700E05BDA /* MessagesTableManager.swift */; };
+		3215F5D61DD65E4700E05BDA /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5D21DD65E4700E05BDA /* MessagesViewController.swift */; };
+		3215F5D71DD65E4700E05BDA /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */; };
+		3215F5D81DD65E4700E05BDA /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */; };
+		3215F5DA1DD65EB700E05BDA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5D91DD65EB700E05BDA /* Message.swift */; };
 		32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D5C1DD50D24001DC6AA /* AppDelegate.swift */; };
 		32361D641DD50D25001DC6AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32361D621DD50D25001DC6AA /* Main.storyboard */; };
 		32361D661DD50D25001DC6AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32361D651DD50D25001DC6AA /* Assets.xcassets */; };
@@ -50,6 +55,11 @@
 		3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableCell.xib; sourceTree = "<group>"; };
 		3215F5C31DD6548600E05BDA /* ChatsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsTableManager.swift; sourceTree = "<group>"; };
 		3215F5C51DD654B800E05BDA /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		3215F5D11DD65E4700E05BDA /* MessagesTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableManager.swift; sourceTree = "<group>"; };
+		3215F5D21DD65E4700E05BDA /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
+		3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
+		3215F5D91DD65EB700E05BDA /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		32361D591DD50D24001DC6AA /* OraChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32361D5C1DD50D24001DC6AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32361D631DD50D25001DC6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,8 +112,21 @@
 				3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */,
 				3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */,
 				3215F5C51DD654B800E05BDA /* Chat.swift */,
+				3215F5D01DD65E4700E05BDA /* Messages */,
 			);
 			path = Chats;
+			sourceTree = "<group>";
+		};
+		3215F5D01DD65E4700E05BDA /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				3215F5D21DD65E4700E05BDA /* MessagesViewController.swift */,
+				3215F5D11DD65E4700E05BDA /* MessagesTableManager.swift */,
+				3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */,
+				3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */,
+				3215F5D91DD65EB700E05BDA /* Message.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 		32361D501DD50D24001DC6AA = {
@@ -276,6 +299,7 @@
 				32361D661DD50D25001DC6AA /* Assets.xcassets in Resources */,
 				3215F5C21DD6545E00E05BDA /* ChatTableCell.xib in Resources */,
 				32361D641DD50D25001DC6AA /* Main.storyboard in Resources */,
+				3215F5D81DD65E4700E05BDA /* MessageTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,9 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */,
+				3215F5D51DD65E4700E05BDA /* MessagesTableManager.swift in Sources */,
 				32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */,
 				3215F5C41DD6548600E05BDA /* ChatsTableManager.swift in Sources */,
 				32361D871DD51360001DC6AA /* TableManager.swift in Sources */,
+				3215F5D71DD65E4700E05BDA /* MessageTableCell.swift in Sources */,
 				32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */,
 				32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */,
 				32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */,
@@ -308,8 +334,10 @@
 				32C984571DD5FF000062FA44 /* TextFieldTableRepresentable.swift in Sources */,
 				3215F5C61DD654B800E05BDA /* Chat.swift in Sources */,
 				32FFD0801DD646DB0056A2CD /* AccountInfo+View.swift in Sources */,
+				3215F5DA1DD65EB700E05BDA /* Message.swift in Sources */,
 				32FFD0851DD647050056A2CD /* AuthenticationViewController.swift in Sources */,
 				32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */,
+				3215F5D61DD65E4700E05BDA /* MessagesViewController.swift in Sources */,
 				32C9845A1DD617EF0062FA44 /* TextFieldTableRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

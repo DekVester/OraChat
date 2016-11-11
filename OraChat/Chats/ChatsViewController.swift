@@ -19,7 +19,14 @@ class ChatsViewController: UITableViewController {
 		guard let tableView = tableView else {exit(1)}
 
 		tableManager = ChatsTableManager(table: tableView, chats: chats)
+		
+		weak var weakSelf = self
 		tableManager!.select = {
+
+			guard let strongSelf = weakSelf else {return}
+			
+			let messagesVC = strongSelf.storyboard!.instantiateViewController(withIdentifier: MessagesViewController.storyboardIdentifier)
+			strongSelf.show(messagesVC, sender: nil)
 		}
 	}
 }
