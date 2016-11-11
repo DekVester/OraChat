@@ -12,7 +12,7 @@ import UIKit
 class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
 
 	typealias TableManagerConfigure = (Cell, Item, Int) -> Void
-	typealias TableManagerSelect = () -> Void
+	typealias TableManagerSelect = (Item, Int) -> Void
 	
 	var items: [Item]
 	
@@ -61,5 +61,14 @@ class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource
 		let item = items[row]
 		configure(cell, item, row)
 		return cell
+	}
+	
+	//MARK:- UITableViewDelegate
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		let row = indexPath.row
+		let item = items[row]
+		select?(item, row)
 	}
 }

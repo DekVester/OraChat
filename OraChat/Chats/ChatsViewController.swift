@@ -10,7 +10,7 @@ import UIKit
 
 class ChatsViewController: UITableViewController {
 	
-	var chats: [Chat] = []
+	var chats: [Chat] = [Chat(), Chat()]
 	var tableManager: ChatsTableManager?
 	
 	override func viewDidLoad() {
@@ -22,6 +22,8 @@ class ChatsViewController: UITableViewController {
 		
 		weak var weakSelf = self
 		tableManager!.select = {
+			
+			(chat: Chat, index: Int) in
 
 			guard let strongSelf = weakSelf else {return}
 			

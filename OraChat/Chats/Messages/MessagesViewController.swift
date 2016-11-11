@@ -10,5 +10,5 @@ import UIKit
 
 class MessagesViewController: UITableViewController {
 	
-	static let storyboardIdentifier = String(describing: self)
+	static let storyboardIdentifier = String(describing: MessagesViewController.self)
 }
