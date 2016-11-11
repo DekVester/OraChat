@@ -1,5 +1,5 @@
 //
-//  TextFieldCell.swift
+//  TextFieldTableCell.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/10/16.
@@ -10,7 +10,7 @@ import UIKit
 
 typealias TextFieldChange = (String)->Void
 
-class TextFieldCell: UITableViewCell {
+class TextFieldTableCell: UITableViewCell {
 
 	var change: TextFieldChange?
 	
@@ -18,7 +18,7 @@ class TextFieldCell: UITableViewCell {
 	@IBOutlet weak var field: UITextField!
 }
 
-extension TextFieldCell: UITextFieldDelegate {
+extension TextFieldTableCell: UITextFieldDelegate {
 	
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 	

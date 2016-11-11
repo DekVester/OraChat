@@ -24,7 +24,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Rk-S8-5Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Authentication View Controller-->
+        <!--OraChat-->
         <scene sceneID="bIo-kl-qbR">
             <objects>
                 <tableViewController id="YrQ-hr-Uqh" customClass="AuthenticationViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,11 +37,36 @@
                             <outlet property="delegate" destination="YrQ-hr-Uqh" id="Oee-ck-h2d"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="oKE-Mx-XC6"/>
+                    <navigationItem key="navigationItem" title="OraChat" id="oKE-Mx-XC6">
+                        <barButtonItem key="backBarButtonItem" title="Login" id="7f0-4F-60W"/>
+                        <barButtonItem key="leftBarButtonItem" title="Register" id="XGZ-DV-y9c">
+                            <connections>
+                                <segue destination="9Jg-9C-Pdw" kind="show" id="awu-GY-yHx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FxQ-Qj-e0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="693"/>
+            <point key="canvasLocation" x="1473" y="81"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="Lyy-Ya-t9i">
+            <objects>
+                <tableViewController storyboardIdentifier="RegistrationViewController" id="9Jg-9C-Pdw" customClass="RegistrationViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2SN-AQ-1Ss">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="9Jg-9C-Pdw" id="Nlj-LH-KyR"/>
+                            <outlet property="delegate" destination="9Jg-9C-Pdw" id="eID-yJ-X16"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swg-7w-rxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2313" y="81"/>
         </scene>
     </scenes>
 </document>

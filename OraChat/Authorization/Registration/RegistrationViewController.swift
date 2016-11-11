@@ -1,5 +1,5 @@
 //
-//  AuthenticationViewController.swift
+//  RegistrationViewController.swift
 //  OraMessenger
 //
 //  Created by Igor Vasilev on 11/10/16.
@@ -8,21 +8,21 @@
 
 import UIKit
 
-class AuthenticationViewController: UITableViewController {
+class RegistrationViewController: UITableViewController {
 
-	var info = AuthenticationInfo()
-	var tableManager: TextFieldTableManager<AuthenticationInfo>?
+	var info = AccountInfo()
+	var tableManager: TextFieldTableManager<AccountInfo>?
 	
 	override func viewDidLoad() {
-	
+		
 		super.viewDidLoad()
-
+		
 		guard let tableView = tableView else {exit(1)}
-
+		
 		weak var weakSelf = self
 		tableManager = TextFieldTableManager(table: tableView, item: info) {
 			
-			(newInfo: AuthenticationInfo) in
+			(newInfo: AccountInfo) in
 			
 			guard let strongSelf = weakSelf else {return}
 			strongSelf.info = newInfo

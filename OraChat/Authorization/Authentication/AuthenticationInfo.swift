@@ -10,6 +10,12 @@ import Foundation
 
 struct AuthenticationInfo {
 	
-	var email = ""
-	var password = ""
+	let email: String
+	let password: String
+	
+	init() {
+		
+		email = ""
+		password = ""
+	}
 }

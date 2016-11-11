@@ -11,10 +11,10 @@ import UIKit
 
 class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-	typealias TableManagerConfigure = (Cell, Item) -> Void
+	typealias TableManagerConfigure = (Cell, Item, Int) -> Void
 	typealias TableManagerSelect = () -> Void
 	
-	let items: [Item]
+	var items: [Item]
 	
 	var configure: TableManagerConfigure!
 	var select: TableManagerSelect?
@@ -57,8 +57,9 @@ class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! Cell
-		let item = items[indexPath.row]
-		configure(cell, item)
+		let row = indexPath.row
+		let item = items[row]
+		configure(cell, item, row)
 		return cell
 	}
 }
