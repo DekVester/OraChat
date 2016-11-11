@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */; };
+		3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */; };
+		3215F5C21DD6545E00E05BDA /* ChatTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */; };
+		3215F5C41DD6548600E05BDA /* ChatsTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5C31DD6548600E05BDA /* ChatsTableManager.swift */; };
+		3215F5C61DD654B800E05BDA /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5C51DD654B800E05BDA /* Chat.swift */; };
 		32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D5C1DD50D24001DC6AA /* AppDelegate.swift */; };
 		32361D641DD50D25001DC6AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32361D621DD50D25001DC6AA /* Main.storyboard */; };
 		32361D661DD50D25001DC6AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32361D651DD50D25001DC6AA /* Assets.xcassets */; };
@@ -42,6 +46,10 @@
 
 /* Begin PBXFileReference section */
 		3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableCell.swift; sourceTree = "<group>"; };
+		3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableCell.xib; sourceTree = "<group>"; };
+		3215F5C31DD6548600E05BDA /* ChatsTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsTableManager.swift; sourceTree = "<group>"; };
+		3215F5C51DD654B800E05BDA /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		32361D591DD50D24001DC6AA /* OraChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32361D5C1DD50D24001DC6AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32361D631DD50D25001DC6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */,
+				3215F5C31DD6548600E05BDA /* ChatsTableManager.swift */,
+				3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */,
+				3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */,
+				3215F5C51DD654B800E05BDA /* Chat.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -156,8 +168,8 @@
 				32C984521DD5FF000062FA44 /* TextFieldTableRepresentable.swift */,
 				32C984591DD617EF0062FA44 /* TextFieldTableRepresentation.swift */,
 				32C984531DD5FF000062FA44 /* TextFieldTableRow.swift */,
-				32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */,
 				32C984511DD5FF000062FA44 /* TextFieldTableCell.xib */,
+				32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */,
 			);
 			path = TextFieldTable;
 			sourceTree = "<group>";
@@ -262,6 +274,7 @@
 				32C9842F1DD5CE250062FA44 /* Authorization.storyboard in Resources */,
 				32C984561DD5FF000062FA44 /* TextFieldTableCell.xib in Resources */,
 				32361D661DD50D25001DC6AA /* Assets.xcassets in Resources */,
+				3215F5C21DD6545E00E05BDA /* ChatTableCell.xib in Resources */,
 				32361D641DD50D25001DC6AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,15 +295,18 @@
 			files = (
 				32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */,
 				32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */,
+				3215F5C41DD6548600E05BDA /* ChatsTableManager.swift in Sources */,
 				32361D871DD51360001DC6AA /* TableManager.swift in Sources */,
 				32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */,
 				32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */,
 				32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */,
+				3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */,
 				32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */,
 				3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */,
 				32C984541DD5FF000062FA44 /* TextFieldTableManager.swift in Sources */,
 				32FFD0821DD646DB0056A2CD /* AuthenticationInfo+View.swift in Sources */,
 				32C984571DD5FF000062FA44 /* TextFieldTableRepresentable.swift in Sources */,
+				3215F5C61DD654B800E05BDA /* Chat.swift in Sources */,
 				32FFD0801DD646DB0056A2CD /* AccountInfo+View.swift in Sources */,
 				32FFD0851DD647050056A2CD /* AuthenticationViewController.swift in Sources */,
 				32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */,

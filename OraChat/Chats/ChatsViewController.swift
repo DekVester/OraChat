@@ -9,4 +9,17 @@
 import UIKit
 
 class ChatsViewController: UITableViewController {
+	
+	var chats: [Chat] = []
+	var tableManager: ChatsTableManager?
+	
+	override func viewDidLoad() {
+		
+		super.viewDidLoad()
+		guard let tableView = tableView else {exit(1)}
+
+		tableManager = ChatsTableManager(table: tableView, chats: chats)
+		tableManager!.select = {
+		}
+	}
 }
