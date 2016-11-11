@@ -9,19 +9,23 @@
 import UIKit
 
 class AuthenticationViewController: UITableViewController {
-	
-	lazy var tableDataSource = AuthenticationDataSource(items: ["Email", "Password"]) {
-		(cell: TextFieldCell, item: String) in
-		cell.textLabel?.text = item
-	}
+
+	var info = AuthenticationInfo()
+	var tableManager: AuthenticationTableManager?
 	
 	override func viewDidLoad() {
 	
 		super.viewDidLoad()
-		
+
 		guard let tableView = tableView else {exit(1)}
-		
-		tableView.register(tableDataSource.cellNib, forCellReuseIdentifier: tableDataSource.cellReuseIdentifier)
-		tableView.dataSource = tableDataSource
+
+		weak var weakSelf = self
+		tableManager = AuthenticationTableManager(table: tableView, info: info, change: {
+			
+			(newInfo: AuthenticationInfo) in
+			
+			guard let  strongSelf = weakSelf else {return}
+			strongSelf.info = newInfo
+		})
 	}
 }

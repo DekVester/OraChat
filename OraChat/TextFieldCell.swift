@@ -8,17 +8,24 @@
 
 import UIKit
 
+typealias TextFieldChange = (String)->Void
+
 class TextFieldCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+	var change: TextFieldChange?
+	
+	@IBOutlet weak var label: UILabel!
+	@IBOutlet weak var field: UITextField!
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+extension TextFieldCell: UITextFieldDelegate {
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+	
+		let currentText = (textField.text ?? "") as NSString
+		let newText = currentText.replacingCharacters(in: range, with: string) as String
+		change?(newText)
+		
+		return true
+	}
 }
