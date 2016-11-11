@@ -67,6 +67,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="m7f-2S-PsY">
+                            <rect key="frame" x="0.0" y="64" width="375" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <connections>
                             <outlet property="dataSource" destination="ads-7O-B2x" id="1b6-dI-E72"/>
                             <outlet property="delegate" destination="ads-7O-B2x" id="hxH-vJ-hPX"/>

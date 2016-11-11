@@ -13,9 +13,10 @@ struct TextFieldTableRow {
 	let key: String
 	let title: String
 	let value: String
+	let secure: Bool
 	
 	func replaceValue(newValue: String) -> TextFieldTableRow {
 		
-		return TextFieldTableRow(key: key, title: title, value: newValue)
+		return TextFieldTableRow(key: key, title: title, value: newValue, secure: secure)
 	}
 }

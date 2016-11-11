@@ -28,11 +28,11 @@ extension AccountInfo: TextFieldTableRepresentable {
 
 		var key: TableRepresentationKey = .Name
 		var title = NSLocalizedString("Name", comment: "Authorization")
-		let nameRow = TextFieldTableRow(key: key.rawValue, title: title, value: name)
+		let nameRow = TextFieldTableRow(key: key.rawValue, title: title, value: name, secure: false)
 		
 		key = .PasswordConfirmation
 		title = NSLocalizedString("Confirmation", comment: "Authorization")
-		let confirmationRow = TextFieldTableRow(key: key.rawValue, title: title, value: passwordConfirmation)
+		let confirmationRow = TextFieldTableRow(key: key.rawValue, title: title, value: passwordConfirmation, secure: true)
 
 		let authenticationData = authenticationInfo.tableRepresentation()
 		let emailRow = authenticationData.elementForKey(AuthenticationInfo.TableRepresentationKey.Email.rawValue)!

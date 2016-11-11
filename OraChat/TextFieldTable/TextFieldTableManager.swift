@@ -26,6 +26,7 @@ class TextFieldTableManager<Representable: TextFieldTableRepresentable>: TableMa
 			
 			cell.label.text = row.title
 			cell.field.text = row.value
+			cell.field.isSecureTextEntry = row.secure
 			
 			cell.change = {
 				
