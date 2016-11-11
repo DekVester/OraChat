@@ -13,19 +13,20 @@
 		32361D691DD50D25001DC6AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32361D671DD50D25001DC6AA /* LaunchScreen.storyboard */; };
 		32361D741DD50D25001DC6AA /* OraChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D731DD50D25001DC6AA /* OraChatTests.swift */; };
 		32361D871DD51360001DC6AA /* TableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D861DD51360001DC6AA /* TableManager.swift */; };
-		32C984251DD5CD860062FA44 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984221DD5CD860062FA44 /* AuthenticationViewController.swift */; };
 		32C9842F1DD5CE250062FA44 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C9842D1DD5CE250062FA44 /* Authorization.storyboard */; };
-		32C984311DD5CFAC0062FA44 /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984301DD5CFAC0062FA44 /* AuthenticationInfo.swift */; };
-		32C984341DD5F4E30062FA44 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984331DD5F4E30062FA44 /* RegistrationViewController.swift */; };
-		32C984381DD5F7140062FA44 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984371DD5F7140062FA44 /* AccountInfo.swift */; };
-		32C9843A1DD5F7D80062FA44 /* AccountInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984391DD5F7D80062FA44 /* AccountInfo+View.swift */; };
-		32C9843E1DD5F8D20062FA44 /* AuthenticationInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9843D1DD5F8D20062FA44 /* AuthenticationInfo+View.swift */; };
 		32C984541DD5FF000062FA44 /* TextFieldTableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9844F1DD5FF000062FA44 /* TextFieldTableManager.swift */; };
 		32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */; };
 		32C984561DD5FF000062FA44 /* TextFieldTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32C984511DD5FF000062FA44 /* TextFieldTableCell.xib */; };
 		32C984571DD5FF000062FA44 /* TextFieldTableRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984521DD5FF000062FA44 /* TextFieldTableRepresentable.swift */; };
 		32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984531DD5FF000062FA44 /* TextFieldTableRow.swift */; };
 		32C9845A1DD617EF0062FA44 /* TextFieldTableRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984591DD617EF0062FA44 /* TextFieldTableRepresentation.swift */; };
+		32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD0791DD6466B0056A2CD /* AccountViewController.swift */; };
+		32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */; };
+		32FFD0801DD646DB0056A2CD /* AccountInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */; };
+		32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07D1DD646DB0056A2CD /* AuthenticationInfo.swift */; };
+		32FFD0821DD646DB0056A2CD /* AuthenticationInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07E1DD646DB0056A2CD /* AuthenticationInfo+View.swift */; };
+		32FFD0851DD647050056A2CD /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD0831DD647050056A2CD /* AuthenticationViewController.swift */; };
+		32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD0841DD647050056A2CD /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,19 +50,20 @@
 		32361D731DD50D25001DC6AA /* OraChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraChatTests.swift; sourceTree = "<group>"; };
 		32361D751DD50D25001DC6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32361D861DD51360001DC6AA /* TableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableManager.swift; sourceTree = "<group>"; };
-		32C984221DD5CD860062FA44 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		32C9842E1DD5CE250062FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authorization.storyboard; sourceTree = "<group>"; };
-		32C984301DD5CFAC0062FA44 /* AuthenticationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
-		32C984331DD5F4E30062FA44 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		32C984371DD5F7140062FA44 /* AccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
-		32C984391DD5F7D80062FA44 /* AccountInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+View.swift"; sourceTree = "<group>"; };
-		32C9843D1DD5F8D20062FA44 /* AuthenticationInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationInfo+View.swift"; sourceTree = "<group>"; };
 		32C9844F1DD5FF000062FA44 /* TextFieldTableManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableManager.swift; sourceTree = "<group>"; };
 		32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
 		32C984511DD5FF000062FA44 /* TextFieldTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableCell.xib; sourceTree = "<group>"; };
 		32C984521DD5FF000062FA44 /* TextFieldTableRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableRepresentable.swift; sourceTree = "<group>"; };
 		32C984531DD5FF000062FA44 /* TextFieldTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableRow.swift; sourceTree = "<group>"; };
 		32C984591DD617EF0062FA44 /* TextFieldTableRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableRepresentation.swift; sourceTree = "<group>"; };
+		32FFD0791DD6466B0056A2CD /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+View.swift"; sourceTree = "<group>"; };
+		32FFD07D1DD646DB0056A2CD /* AuthenticationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
+		32FFD07E1DD646DB0056A2CD /* AuthenticationInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationInfo+View.swift"; sourceTree = "<group>"; };
+		32FFD0831DD647050056A2CD /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		32FFD0841DD647050056A2CD /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,14 +105,16 @@
 		32361D5B1DD50D24001DC6AA /* OraChat */ = {
 			isa = PBXGroup;
 			children = (
-				32C9844E1DD5FF000062FA44 /* TextFieldTable */,
-				32C9841F1DD5CD860062FA44 /* Authorization */,
 				32361D5C1DD50D24001DC6AA /* AppDelegate.swift */,
+				32C9841F1DD5CD860062FA44 /* Authorization */,
 				32361D621DD50D25001DC6AA /* Main.storyboard */,
+				32FFD0791DD6466B0056A2CD /* AccountViewController.swift */,
+				32C9844E1DD5FF000062FA44 /* TextFieldTable */,
+				32361D861DD51360001DC6AA /* TableManager.swift */,
+				32FFD0741DD646100056A2CD /* Model */,
 				32361D651DD50D25001DC6AA /* Assets.xcassets */,
 				32361D671DD50D25001DC6AA /* LaunchScreen.storyboard */,
 				32361D6A1DD50D25001DC6AA /* Info.plist */,
-				32361D861DD51360001DC6AA /* TableManager.swift */,
 			);
 			path = OraChat;
 			sourceTree = "<group>";
@@ -127,31 +131,11 @@
 		32C9841F1DD5CD860062FA44 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				32FFD0831DD647050056A2CD /* AuthenticationViewController.swift */,
+				32FFD0841DD647050056A2CD /* RegistrationViewController.swift */,
 				32C9842D1DD5CE250062FA44 /* Authorization.storyboard */,
-				32C984201DD5CD860062FA44 /* Authentication */,
-				32C984321DD5F4E30062FA44 /* Registration */,
 			);
 			path = Authorization;
-			sourceTree = "<group>";
-		};
-		32C984201DD5CD860062FA44 /* Authentication */ = {
-			isa = PBXGroup;
-			children = (
-				32C984221DD5CD860062FA44 /* AuthenticationViewController.swift */,
-				32C984301DD5CFAC0062FA44 /* AuthenticationInfo.swift */,
-				32C9843D1DD5F8D20062FA44 /* AuthenticationInfo+View.swift */,
-			);
-			path = Authentication;
-			sourceTree = "<group>";
-		};
-		32C984321DD5F4E30062FA44 /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-				32C984331DD5F4E30062FA44 /* RegistrationViewController.swift */,
-				32C984371DD5F7140062FA44 /* AccountInfo.swift */,
-				32C984391DD5F7D80062FA44 /* AccountInfo+View.swift */,
-			);
-			path = Registration;
 			sourceTree = "<group>";
 		};
 		32C9844E1DD5FF000062FA44 /* TextFieldTable */ = {
@@ -165,6 +149,17 @@
 				32C984511DD5FF000062FA44 /* TextFieldTableCell.xib */,
 			);
 			path = TextFieldTable;
+			sourceTree = "<group>";
+		};
+		32FFD0741DD646100056A2CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */,
+				32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */,
+				32FFD07D1DD646DB0056A2CD /* AuthenticationInfo.swift */,
+				32FFD07E1DD646DB0056A2CD /* AuthenticationInfo+View.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,19 +269,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */,
+				32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */,
 				32361D871DD51360001DC6AA /* TableManager.swift in Sources */,
-				32C984251DD5CD860062FA44 /* AuthenticationViewController.swift in Sources */,
 				32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */,
+				32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */,
 				32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */,
-				32C984311DD5CFAC0062FA44 /* AuthenticationInfo.swift in Sources */,
-				32C984341DD5F4E30062FA44 /* RegistrationViewController.swift in Sources */,
+				32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */,
 				32C984541DD5FF000062FA44 /* TextFieldTableManager.swift in Sources */,
-				32C984381DD5F7140062FA44 /* AccountInfo.swift in Sources */,
+				32FFD0821DD646DB0056A2CD /* AuthenticationInfo+View.swift in Sources */,
 				32C984571DD5FF000062FA44 /* TextFieldTableRepresentable.swift in Sources */,
+				32FFD0801DD646DB0056A2CD /* AccountInfo+View.swift in Sources */,
+				32FFD0851DD647050056A2CD /* AuthenticationViewController.swift in Sources */,
 				32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */,
 				32C9845A1DD617EF0062FA44 /* TextFieldTableRepresentation.swift in Sources */,
-				32C9843E1DD5F8D20062FA44 /* AuthenticationInfo+View.swift in Sources */,
-				32C9843A1DD5F7D80062FA44 /* AccountInfo+View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
