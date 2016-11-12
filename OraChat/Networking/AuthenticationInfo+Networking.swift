@@ -33,7 +33,7 @@ extension AuthenticationInfo {
 
 fileprivate extension AuthenticationInfo {
 	
-	func json() -> JSONDictionary {
+	var json: JSONDictionary {
 		
 		return ["email": email, "password": password]
 	}

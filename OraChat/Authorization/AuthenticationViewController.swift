@@ -28,4 +28,40 @@ class AuthenticationViewController: UITableViewController {
 			strongSelf.info = newInfo
 		}
 	}
+	
+	@IBAction func onLogin() {
+	
+		weak var weakSelf = self
+		webservice.load(info.login) {
+			
+			(token: AuthorizationToken?, error: Error?) in
+			
+			guard let strongSelf = weakSelf else {return}
+			
+			if let token = token {
+
+				strongSelf.webservice.authorizationToken = token
+				strongSelf.dismiss(animated: true, completion: nil)
+			}
+			else {
+				
+				strongSelf.showCredentialsError()
+			}
+		}
+	}
+	
+	private func showCredentialsError() {
+		
+		let alertTitle = NSLocalizedString("Error", comment: "Authorization")
+		let alertMessage = NSLocalizedString("Invalid credentials", comment: "Authorization")
+		let buttonTitle = NSLocalizedString("OK", comment: "OK")
+		
+		let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+		let dismiss = UIAlertAction(title: buttonTitle, style: .default) { _ in
+			alert.dismiss(animated: true, completion: nil)
+		}
+		alert.addAction(dismiss)
+		
+		self.present(alert, animated: true, completion: nil)
+	}
 }

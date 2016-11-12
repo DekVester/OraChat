@@ -14,10 +14,20 @@ extension UIViewController {
 	
 	func handle(error: Error) -> Bool {
 		
+		showAuthentication()
+		return true
+	}
+	
+	func showAuthentication() {
+		
 		let storyboard = UIStoryboard(name: "Authorization", bundle: nil)
 		let authenticationViewController = storyboard.instantiateInitialViewController()!
 		show(authenticationViewController, sender: nil)
+	}
+	
+	var webservice: Webservice {
 		
-		return true
+		let appDelegate = UIApplication.shared.delegate as! AppDelegate
+		return appDelegate.webservice
 	}
 }

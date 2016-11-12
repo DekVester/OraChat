@@ -24,10 +24,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Rk-S8-5Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--OraChat-->
+        <!--Authentication-->
         <scene sceneID="bIo-kl-qbR">
             <objects>
-                <tableViewController id="YrQ-hr-Uqh" customClass="AuthenticationViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="YrQ-hr-Uqh" userLabel="Authentication" customClass="AuthenticationViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jv8-gu-Ub7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,16 +44,21 @@
                                 <segue destination="9Jg-9C-Pdw" kind="show" id="awu-GY-yHx"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Login" id="qDd-8S-Way">
+                            <connections>
+                                <action selector="onLogin" destination="YrQ-hr-Uqh" id="95z-Az-dx6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FxQ-Qj-e0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473" y="81"/>
+            <point key="canvasLocation" x="1073" y="139"/>
         </scene>
-        <!--Registration View Controller-->
+        <!--Registration-->
         <scene sceneID="Lyy-Ya-t9i">
             <objects>
-                <tableViewController storyboardIdentifier="RegistrationViewController" id="9Jg-9C-Pdw" customClass="RegistrationViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RegistrationViewController" id="9Jg-9C-Pdw" userLabel="Registration" customClass="RegistrationViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2SN-AQ-1Ss">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +71,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swg-7w-rxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="81"/>
+            <point key="canvasLocation" x="2047" y="139"/>
         </scene>
     </scenes>
 </document>

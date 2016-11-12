@@ -81,7 +81,7 @@ final class Webservice {
 	
 	var authorizationToken: String?
 	
-	func load<A>(resource: WebResource<A>, completion: @escaping (A?, Error?) -> Void) {
+	func load<A>(_ resource: WebResource<A>, completion: @escaping (A?, Error?) -> Void) {
 		
 		var request = URLRequest(resource: resource)
 		
