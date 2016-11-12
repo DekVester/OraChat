@@ -18,4 +18,9 @@ struct AuthenticationInfo {
 		email = ""
 		password = ""
 	}
+	
+	init(email anEmail: String, password aPassword: String) {
+		email = anEmail
+		password = aPassword
+	}
 }
