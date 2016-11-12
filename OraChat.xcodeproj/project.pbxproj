@@ -10,6 +10,7 @@
 		320EEFB01DD754F500AB7BA2 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFAF1DD754F500AB7BA2 /* Webservice.swift */; };
 		320EEFB21DD7551400AB7BA2 /* AccountInfo+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */; };
 		320EEFB41DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */; };
+		320EEFB61DD7741400AB7BA2 /* UIViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */; };
 		3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */; };
 		3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */; };
 		3215F5C21DD6545E00E05BDA /* ChatTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */; };
@@ -56,6 +57,7 @@
 		320EEFAF1DD754F500AB7BA2 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+Networking.swift"; sourceTree = "<group>"; };
 		320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationInfo+Networking.swift"; sourceTree = "<group>"; };
+		320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Networking.swift"; sourceTree = "<group>"; };
 		3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableCell.swift; sourceTree = "<group>"; };
 		3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableCell.xib; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				320EEFAF1DD754F500AB7BA2 /* Webservice.swift */,
 				320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */,
 				320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */,
+				320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				32C984541DD5FF000062FA44 /* TextFieldTableManager.swift in Sources */,
 				320EEFB01DD754F500AB7BA2 /* Webservice.swift in Sources */,
 				32FFD0821DD646DB0056A2CD /* AuthenticationInfo+View.swift in Sources */,
+				320EEFB61DD7741400AB7BA2 /* UIViewController+Networking.swift in Sources */,
 				32C984571DD5FF000062FA44 /* TextFieldTableRepresentable.swift in Sources */,
 				3215F5C61DD654B800E05BDA /* Chat.swift in Sources */,
 				320EEFB41DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift in Sources */,

@@ -79,10 +79,24 @@ extension URLRequest {
 
 final class Webservice {
 	
-	func load<A>(resource: WebResource<A>, completion: @escaping (A?) -> Void) {
-		let request = URLRequest(resource: resource)
-		URLSession.shared.dataTask(with: request) { data, _, _ in
-			completion(data.flatMap(resource.parse))
-			}.resume()
+	var authorizationToken: String?
+	
+	func load<A>(resource: WebResource<A>, completion: @escaping (A?, Error?) -> Void) {
+		
+		var request = URLRequest(resource: resource)
+		
+		/*
+		Apply authorization token, if possible
+		*/
+		if let token = authorizationToken {
+			request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+		}
+		
+		let task = URLSession.shared.dataTask(with: request) {
+			
+			(data, response, error) in
+			completion(data.flatMap(resource.parse), error)
+		}
+		task.resume()
 	}
 }
