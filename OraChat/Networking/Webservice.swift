@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-typealias JSONDictionary = [String: AnyObject]
+typealias JSONDictionary = [String: Any]
 
 
 enum HttpMethod<Body> {

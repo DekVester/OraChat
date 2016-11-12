@@ -20,7 +20,7 @@ extension AccountInfo {
 	private static let viewUrl = URL(string: "http://private-d9e5b-oracodechallenge.apiary-mock.com/users/me")!
 }
 
-extension AccountInfo {
+fileprivate extension AccountInfo {
 	
 	init?(json: JSONDictionary) {
 

@@ -11,8 +11,8 @@ import Foundation
 extension AuthenticationInfo {
 	
 	var login: WebResource<Bool> {
-		
-		let loginResource = WebResource<Bool>(url: type(of: self).url) {
+
+		let loginResource = WebResource<Bool>(url: type(of: self).url, method: .post(json)) {
 			
 			json in
 			guard let jsonDict = json as? JSONDictionary else {return false}
@@ -23,4 +23,12 @@ extension AuthenticationInfo {
 	}
 	
 	static let url = URL(string:"http://private-d9e5b-oracodechallenge.apiary-mock.com/users/login")!
+}
+
+fileprivate extension AuthenticationInfo {
+	
+	func json() -> JSONDictionary {
+		
+		return ["email": email, "password": password]
+	}
 }
