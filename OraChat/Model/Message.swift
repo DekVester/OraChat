@@ -8,6 +8,9 @@
 
 import UIKit
 
-class Message: NSObject {
+struct Message {
 
+	let text: String
+	let creationDate: Date
+	let userName: String
 }

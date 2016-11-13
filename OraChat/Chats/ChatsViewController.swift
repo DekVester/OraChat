@@ -10,7 +10,7 @@ import UIKit
 
 class ChatsViewController: UITableViewController {
 	
-	var chats: [Chat] = [Chat(), Chat()]
+	var chats: [Chat] = []
 	var tableListener: ChatsTableListener?
 	
 	override func viewDidLoad() {

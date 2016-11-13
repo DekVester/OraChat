@@ -36,6 +36,8 @@
 		32D024601DD8A9B50044871C /* Chat+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0245F1DD8A9B50044871C /* Chat+Networking.swift */; };
 		32D024631DD8AA460044871C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024611DD8AA460044871C /* Chat.swift */; };
 		32D024641DD8AA460044871C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024621DD8AA460044871C /* Message.swift */; };
+		32D024661DD8B3900044871C /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */; };
+		32D024681DD8B6A30044871C /* Message+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024671DD8B6A30044871C /* Message+Networking.swift */; };
 		32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD0791DD6466B0056A2CD /* AccountViewController.swift */; };
 		32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */; };
 		32FFD0801DD646DB0056A2CD /* AccountInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */; };
@@ -89,6 +91,8 @@
 		32D0245F1DD8A9B50044871C /* Chat+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chat+Networking.swift"; sourceTree = "<group>"; };
 		32D024611DD8AA460044871C /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		32D024621DD8AA460044871C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3339DateFormatter.swift; sourceTree = "<group>"; };
+		32D024671DD8B6A30044871C /* Message+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+Networking.swift"; sourceTree = "<group>"; };
 		32FFD0791DD6466B0056A2CD /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+View.swift"; sourceTree = "<group>"; };
@@ -124,7 +128,9 @@
 				320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */,
 				320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */,
 				32D0245F1DD8A9B50044871C /* Chat+Networking.swift */,
+				32D024671DD8B6A30044871C /* Message+Networking.swift */,
 				324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */,
+				32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -224,12 +230,12 @@
 		32FFD0741DD646100056A2CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				32D024611DD8AA460044871C /* Chat.swift */,
-				32D024621DD8AA460044871C /* Message.swift */,
-				32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */,
-				32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */,
 				32FFD07D1DD646DB0056A2CD /* AuthenticationInfo.swift */,
 				32FFD07E1DD646DB0056A2CD /* AuthenticationInfo+View.swift */,
+				32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */,
+				32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */,
+				32D024611DD8AA460044871C /* Chat.swift */,
+				32D024621DD8AA460044871C /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				324F4EBC1DD8736B001A5915 /* JSONSerializable.swift in Sources */,
 				32D024601DD8A9B50044871C /* Chat+Networking.swift in Sources */,
 				32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */,
+				32D024681DD8B6A30044871C /* Message+Networking.swift in Sources */,
 				32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */,
 				32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */,
 				3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */,
@@ -371,6 +378,7 @@
 				32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */,
 				3215F5D61DD65E4700E05BDA /* MessagesViewController.swift in Sources */,
 				32C9845A1DD617EF0062FA44 /* TextFieldTableRepresentation.swift in Sources */,
+				32D024661DD8B3900044871C /* RFC3339DateFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

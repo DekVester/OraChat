@@ -9,4 +9,8 @@
 import Foundation
 
 struct Chat {
+	
+	let name: String
+	let creationDate: Date
+	let lastMessage: Message
 }
