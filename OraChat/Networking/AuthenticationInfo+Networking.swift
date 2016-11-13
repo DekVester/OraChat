@@ -31,7 +31,16 @@ extension AuthenticationInfo {
 }
 
 
-fileprivate extension AuthenticationInfo {
+extension AuthenticationInfo: JSONSerializable {
+	
+	init?(json: JSONDictionary) {
+		
+		guard let jsonData = json["data"] as? JSONDictionary else {return nil}
+		guard let anEmail = jsonData["email"] as? String else {return nil}
+		
+		email = anEmail
+		password = ""
+	}
 	
 	var json: JSONDictionary {
 		

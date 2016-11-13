@@ -11,7 +11,7 @@ import UIKit
 class RegistrationViewController: UITableViewController {
 
 	var info = AccountInfo()
-	var tableManager: TextFieldTableManager<AccountInfo>?
+	private var tableManager: TextFieldTableManager<AccountInfo>?
 	
 	override func viewDidLoad() {
 		
@@ -27,5 +27,41 @@ class RegistrationViewController: UITableViewController {
 			guard let strongSelf = weakSelf else {return}
 			strongSelf.info = newInfo
 		}
+	}
+	
+	@IBAction private func onRegister() {
+		
+		weak var weakSelf = self
+		webservice.load(info.register) {
+			
+			(token: AuthorizationToken?, error: Error?) in
+			
+			guard let strongSelf = weakSelf else {return}
+			
+			if let token = token {
+				
+				strongSelf.webservice.authorizationToken = token
+				strongSelf.dismiss(animated: true, completion: nil)
+			}
+			else {
+				
+				strongSelf.showRegistrationError()
+			}
+		}
+	}
+	
+	private func showRegistrationError() {
+		
+		let alertTitle = NSLocalizedString("Error", comment: "Authorization")
+		let alertMessage = NSLocalizedString("Invalid registration information", comment: "Authorization")
+		let buttonTitle = NSLocalizedString("OK", comment: "OK")
+		
+		let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+		let dismiss = UIAlertAction(title: buttonTitle, style: .default) { _ in
+			alert.dismiss(animated: true, completion: nil)
+		}
+		alert.addAction(dismiss)
+		
+		self.present(alert, animated: true, completion: nil)
 	}
 }

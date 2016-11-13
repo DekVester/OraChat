@@ -68,6 +68,15 @@
                             <outlet property="delegate" destination="9Jg-9C-Pdw" id="eID-yJ-X16"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="uPu-2n-1wy">
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="GFK-UJ-bTf">
+                            <connections>
+                                <action selector="onRegister" destination="9Jg-9C-Pdw" id="LzB-tY-7yw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swg-7w-rxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

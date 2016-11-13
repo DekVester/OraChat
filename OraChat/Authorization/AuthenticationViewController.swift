@@ -11,7 +11,7 @@ import UIKit
 class AuthenticationViewController: UITableViewController {
 
 	var info = AuthenticationInfo()
-	var tableManager: TextFieldTableManager<AuthenticationInfo>?
+	private var tableManager: TextFieldTableManager<AuthenticationInfo>?
 	
 	override func viewDidLoad() {
 	
@@ -29,7 +29,7 @@ class AuthenticationViewController: UITableViewController {
 		}
 	}
 	
-	@IBAction func onLogin() {
+	@IBAction private func onLogin() {
 	
 		weak var weakSelf = self
 		webservice.load(info.login) {
