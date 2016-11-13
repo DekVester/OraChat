@@ -79,6 +79,8 @@ extension URLRequest {
 
 final class Webservice {
 	
+	let session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue.main)
+	
 	var authorizationToken: String?
 	
 	func load<A>(_ resource: WebResource<A>, completion: @escaping (A?, Error?) -> Void) {
@@ -92,9 +94,10 @@ final class Webservice {
 			request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 		}
 		
-		let task = URLSession.shared.dataTask(with: request) {
+		let task = session.dataTask(with: request) {
 			
 			(data, response, error) in
+
 			completion(data.flatMap(resource.parse), error)
 		}
 		task.resume()

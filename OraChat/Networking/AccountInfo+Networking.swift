@@ -12,15 +12,7 @@ extension AccountInfo {
 	
 	var register: WebResource<AuthorizationToken> {
 		
-		let registerResource = WebResource<AuthorizationToken>(url: type(of: self).registerUrl, method: .post(json)) {
-			
-			json in
-			guard let jsonDict = json as? JSONDictionary else {return nil}
-			guard let jsonData = jsonDict["data"] as? JSONDictionary else {return nil}
-			return jsonData["token"] as? AuthorizationToken
-		}
-		
-		return registerResource
+		return AuthenticationInfo.authorizationWithData(json, url: type(of: self).registerUrl)
 	}
 	
 	static let me = WebResource<AccountInfo>(url: viewUrl) {

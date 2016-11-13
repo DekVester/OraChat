@@ -10,8 +10,13 @@ import UIKit
 
 class AccountViewController: UITableViewController {
 	
-	var info = AccountInfo()
-	var tableManager: TextFieldTableManager<AccountInfo>?
+	var info = AccountInfo() {
+		didSet {
+			if let tableManager = tableManager {
+				tableManager.item = info
+			}
+		}
+	}
 	
 	override func viewDidLoad() {
 		
@@ -28,4 +33,24 @@ class AccountViewController: UITableViewController {
 			strongSelf.info = newInfo
 		}
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		weak var weakSelf = self
+		webservice.load(AccountInfo.me) {
+			(result: AccountInfo?, error: Error?) in
+			
+			guard let strongSelf = weakSelf else {return}
+			
+			if let newInfo = result {
+				strongSelf.info = newInfo
+			}
+			else {
+				strongSelf.handle(error: error!)
+			}
+		}
+	}
+	
+	private var tableManager: TextFieldTableManager<AccountInfo>?
 }

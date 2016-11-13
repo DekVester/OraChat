@@ -12,7 +12,7 @@ import UIKit
 
 extension UIViewController {
 	
-	func handle(error: Error) -> Bool {
+	@discardableResult func handle(error: Error) -> Bool {
 		
 		showAuthentication()
 		return true

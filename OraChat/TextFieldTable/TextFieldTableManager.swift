@@ -42,4 +42,14 @@ class TextFieldTableManager<Representable: TextFieldTableRepresentable>: TableMa
 			}
 		}
 	}
+	
+	var item: Representable {
+		
+		get {
+			return Representable(tableRepresentation: items)
+		}
+		set(newItem) {
+			items = newItem.tableRepresentation()
+		}
+	}
 }

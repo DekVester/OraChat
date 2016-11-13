@@ -14,14 +14,19 @@ class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource
 	typealias TableManagerConfigure = (Cell, Item, Int) -> Void
 	typealias TableManagerSelect = (Item, Int) -> Void
 	
-	var items: [Item]
+	var items: [Item] {
+		didSet {
+			table.reloadData()
+		}
+	}
 	
 	var configure: TableManagerConfigure!
 	var select: TableManagerSelect?
 	
-	init(table: UITableView, items someItems: [Item]) {
+	init(table aTable: UITableView, items someItems: [Item]) {
 		
 		items = someItems
+		table = aTable
 		
 		super.init()
 		
@@ -29,6 +34,8 @@ class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource
 
 		table.dataSource = self
 		table.delegate = self
+		
+		table.reloadData()
 	}
 	
 	//MARK:- Cell properties
@@ -71,4 +78,6 @@ class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource
 		let item = items[row]
 		select?(item, row)
 	}
+	
+	private let table: UITableView
 }
