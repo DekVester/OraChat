@@ -10,13 +10,7 @@ import UIKit
 
 class AccountViewController: UITableViewController {
 	
-	var info = AccountInfo() {
-		didSet {
-			if let tableManager = tableManager {
-				tableManager.item = info
-			}
-		}
-	}
+	var info = AccountInfo()
 	
 	override func viewDidLoad() {
 		
@@ -25,7 +19,7 @@ class AccountViewController: UITableViewController {
 		guard let tableView = tableView else {exit(1)}
 		
 		weak var weakSelf = self
-		tableManager = TextFieldTableManager(table: tableView, item: info) {
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
 			
 			(newInfo: AccountInfo) in
 			
@@ -44,7 +38,17 @@ class AccountViewController: UITableViewController {
 			guard let strongSelf = weakSelf else {return}
 			
 			if let newInfo = result {
+				
 				strongSelf.info = newInfo
+				
+				/*
+				Update UI
+				*/
+				if let tableListener = strongSelf.tableListener, let table = strongSelf.tableView {
+					
+					tableListener.item = newInfo
+					table.reloadData()
+				}
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -52,5 +56,25 @@ class AccountViewController: UITableViewController {
 		}
 	}
 	
-	private var tableManager: TextFieldTableManager<AccountInfo>?
+	private var tableListener: TextFieldTableListener<AccountInfo>?
+}
+
+//MARK:- Actions
+
+private extension AccountViewController {
+	
+	@IBAction func onEdit() {
+		
+		weak var weakSelf = self
+		webservice.load(info.edit) {
+			
+			(result: Void?, error: Error?) in
+
+			guard let strongSelf = weakSelf else {return}
+			guard let _ = result else {
+				strongSelf.handle(error: error!)
+				return
+			}
+		}
+	}
 }

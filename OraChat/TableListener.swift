@@ -1,5 +1,5 @@
 //
-//  TableManager.swift
+//  TableListener.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/10/16.
@@ -9,33 +9,26 @@
 import UIKit
 
 
-class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
+class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-	typealias TableManagerConfigure = (Cell, Item, Int) -> Void
-	typealias TableManagerSelect = (Item, Int) -> Void
+	typealias TableListenerConfigure = (Cell, Item, Int) -> Void
+	typealias TableListenerSelect = (Item, Int) -> Void
 	
-	var items: [Item] {
-		didSet {
-			table.reloadData()
-		}
-	}
+	var items: [Item]
 	
-	var configure: TableManagerConfigure!
-	var select: TableManagerSelect?
+	var configure: TableListenerConfigure!
+	var select: TableListenerSelect?
 	
-	init(table aTable: UITableView, items someItems: [Item]) {
+	init(items someItems: [Item], preparingTable aTable: UITableView) {
 		
 		items = someItems
-		table = aTable
 		
 		super.init()
 		
-		table.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
+		aTable.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
 
-		table.dataSource = self
-		table.delegate = self
-		
-		table.reloadData()
+		aTable.dataSource = self
+		aTable.delegate = self
 	}
 	
 	//MARK:- Cell properties
@@ -78,6 +71,4 @@ class TableManager<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource
 		let item = items[row]
 		select?(item, row)
 	}
-	
-	private let table: UITableView
 }

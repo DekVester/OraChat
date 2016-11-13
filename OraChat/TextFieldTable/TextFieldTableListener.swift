@@ -1,5 +1,5 @@
 //
-//  TextFieldTableManager.swift
+//  TextFieldTableListener.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/10/16.
@@ -9,14 +9,14 @@
 import UIKit
 
 
-class TextFieldTableManager<Representable: TextFieldTableRepresentable>: TableManager<TextFieldTableRow, TextFieldTableCell> {
+class TextFieldTableListener<Representable: TextFieldTableRepresentable>: TableListener<TextFieldTableRow, TextFieldTableCell> {
 
 	typealias RepresentableItemChange = (Representable) -> Void
 	
-	init(table: UITableView, item anItem: Representable, change: @escaping RepresentableItemChange) {
+	init(item anItem: Representable, preparingTable table: UITableView, change: @escaping RepresentableItemChange) {
 
 		let rows = anItem.tableRepresentation()
-		super.init(table: table, items: rows)
+		super.init(items: rows, preparingTable: table)
 		
 		weak var weakSelf = self
 		

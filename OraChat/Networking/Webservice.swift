@@ -16,6 +16,7 @@ typealias JSONDictionary = [String: Any]
 enum HttpMethod<Body> {
 	case get
 	case post(Body)
+	case put(Body)
 }
 
 extension HttpMethod {
@@ -23,6 +24,7 @@ extension HttpMethod {
 		switch self {
 		case .get: return "GET"
 		case .post: return "POST"
+		case .put: return "PUT"
 		}
 	}
 	
@@ -31,21 +33,22 @@ extension HttpMethod {
 		case .get: return .get
 		case .post(let body):
 			return .post(f(body))
+		case .put(let body):
+			return .put(f(body))
 		}
-		
 	}
 }
 
 
 struct WebResource<A> {
-	let url: URL
+	let urlPath: String
 	let method: HttpMethod<Data>
 	let parse: (Data) -> A?
 }
 
 extension WebResource {
-	init(url: URL, method: HttpMethod<Any> = .get, parseJSON: @escaping (Any) -> A?) {
-		self.url = url
+	init(urlPath: String, method: HttpMethod<Any> = .get, parseJSON: @escaping (Any) -> A?) {
+		self.urlPath = urlPath
 		self.method = method.map { json in
 			try! JSONSerialization.data(withJSONObject: json, options: [])
 		}
@@ -56,26 +59,22 @@ extension WebResource {
 	}
 }
 
-
-//func pushNotification(token: String) -> WebResource<Bool> {
-//	let url = NSURL(string: "Some test URL")!
-//	let dictionary = ["token": token]
-//	return WebResource(url: url, method: .post(dictionary), parseJSON: { _ in
-//		return true
-//	})
-//}
-
-
 extension URLRequest {
-	init<A>(resource: WebResource<A>) {
-		self.init(url: resource.url)
+	init<A>(resource: WebResource<A>, baseUrl: URL) {
+		
+		let url = baseUrl.appendingPathComponent(resource.urlPath)
+		self.init(url: url)
+		
 		httpMethod = resource.method.text
-		if case let .post(data) = resource.method {
+		
+		switch resource.method {
+		case let .post(data), let .put(data):
 			httpBody = data
+		default:
+			break
 		}
 	}
 }
-
 
 final class Webservice {
 	
@@ -84,8 +83,8 @@ final class Webservice {
 	var authorizationToken: String?
 	
 	func load<A>(_ resource: WebResource<A>, completion: @escaping (A?, Error?) -> Void) {
-		
-		var request = URLRequest(resource: resource)
+
+		var request = URLRequest(resource: resource, baseUrl: baseUrl)
 		
 		/*
 		Apply authorization token, if possible
@@ -102,4 +101,6 @@ final class Webservice {
 		}
 		task.resume()
 	}
+	
+	private let baseUrl = URL(string: "http://private-d9e5b-oracodechallenge.apiary-mock.com/")!
 }

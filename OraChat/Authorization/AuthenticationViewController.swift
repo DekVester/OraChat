@@ -11,7 +11,7 @@ import UIKit
 class AuthenticationViewController: UITableViewController {
 
 	var info = AuthenticationInfo()
-	private var tableManager: TextFieldTableManager<AuthenticationInfo>?
+	private var tableListener: TextFieldTableListener<AuthenticationInfo>?
 	
 	override func viewDidLoad() {
 	
@@ -20,7 +20,7 @@ class AuthenticationViewController: UITableViewController {
 		guard let tableView = tableView else {exit(1)}
 
 		weak var weakSelf = self
-		tableManager = TextFieldTableManager(table: tableView, item: info) {
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
 			
 			(newInfo: AuthenticationInfo) in
 			
@@ -28,9 +28,14 @@ class AuthenticationViewController: UITableViewController {
 			strongSelf.info = newInfo
 		}
 	}
+}
+
+//MARK:- Actions
+
+private extension AuthenticationViewController {
 	
-	@IBAction private func onLogin() {
-	
+	@IBAction func onLogin() {
+		
 		weak var weakSelf = self
 		webservice.load(info.login) {
 			
@@ -39,7 +44,7 @@ class AuthenticationViewController: UITableViewController {
 			guard let strongSelf = weakSelf else {return}
 			
 			if let token = token {
-
+				
 				strongSelf.webservice.authorizationToken = token
 				strongSelf.dismiss(animated: true, completion: nil)
 			}
@@ -50,7 +55,7 @@ class AuthenticationViewController: UITableViewController {
 		}
 	}
 	
-	private func showCredentialsError() {
+	func showCredentialsError() {
 		
 		let alertTitle = NSLocalizedString("Error", comment: "Authorization")
 		let alertMessage = NSLocalizedString("Invalid credentials", comment: "Authorization")

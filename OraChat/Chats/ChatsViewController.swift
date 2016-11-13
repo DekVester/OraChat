@@ -11,17 +11,17 @@ import UIKit
 class ChatsViewController: UITableViewController {
 	
 	var chats: [Chat] = [Chat(), Chat()]
-	var tableManager: ChatsTableManager?
+	var tableListener: ChatsTableListener?
 	
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
 		guard let tableView = tableView else {exit(1)}
 
-		tableManager = ChatsTableManager(table: tableView, chats: chats)
+		tableListener = ChatsTableListener(chats: chats, preparingTable: tableView)
 		
 		weak var weakSelf = self
-		tableManager!.select = {
+		tableListener!.select = {
 			
 			(chat: Chat, index: Int) in
 

@@ -1,5 +1,5 @@
 //
-//  ChatsTableManager.swift
+//  ChatsTableListener.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/11/16.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ChatsTableManager: TableManager<Chat, ChatTableCell> {
+class ChatsTableListener: TableListener<Chat, ChatTableCell> {
 	
-	init(table: UITableView, chats someChats: [Chat]) {
+	init(chats someChats: [Chat], preparingTable table: UITableView) {
 		
-		super.init(table: table, items: someChats)
+		super.init(items: someChats, preparingTable: table)
 		
 		configure = {
 			

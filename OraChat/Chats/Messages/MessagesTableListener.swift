@@ -1,5 +1,5 @@
 //
-//  MessagesTableManager.swift
+//  MessagesTableListener.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/11/16.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class MessagesTableManager: TableManager <Message, MessageTableCell> {
+class MessagesTableListener: TableListener <Message, MessageTableCell> {
 
 }

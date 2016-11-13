@@ -11,7 +11,7 @@ import UIKit
 class RegistrationViewController: UITableViewController {
 
 	var info = AccountInfo()
-	private var tableManager: TextFieldTableManager<AccountInfo>?
+	private var tableListener: TextFieldTableListener<AccountInfo>?
 	
 	override func viewDidLoad() {
 		
@@ -20,7 +20,7 @@ class RegistrationViewController: UITableViewController {
 		guard let tableView = tableView else {exit(1)}
 		
 		weak var weakSelf = self
-		tableManager = TextFieldTableManager(table: tableView, item: info) {
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
 			
 			(newInfo: AccountInfo) in
 			
@@ -28,8 +28,13 @@ class RegistrationViewController: UITableViewController {
 			strongSelf.info = newInfo
 		}
 	}
+}
+
+//MARK:- Actions
+
+private extension RegistrationViewController {
 	
-	@IBAction private func onRegister() {
+	@IBAction func onRegister() {
 		
 		weak var weakSelf = self
 		webservice.load(info.register) {
@@ -50,7 +55,7 @@ class RegistrationViewController: UITableViewController {
 		}
 	}
 	
-	private func showRegistrationError() {
+	func showRegistrationError() {
 		
 		let alertTitle = NSLocalizedString("Error", comment: "Authorization")
 		let alertMessage = NSLocalizedString("Invalid registration information", comment: "Authorization")

@@ -129,7 +129,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Account" id="YpT-Xb-DX0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DdC-R1-0iR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="DdC-R1-0iR">
+                            <connections>
+                                <action selector="onEdit" destination="ads-7O-B2x" id="vtG-ol-dtG"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Smc-QV-q2o" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -17,12 +17,12 @@ extension AuthenticationInfo {
 	var login: WebResource<AuthorizationToken> {
 
 		let dynamicType = type(of: self)
-		return dynamicType.authorizationWithData(json, url: dynamicType.url)
+		return dynamicType.authorizationWithData(json, urlPath: dynamicType.urlPath)
 	}
 	
-	static func authorizationWithData(_ json: JSONDictionary, url: URL) -> WebResource<AuthorizationToken> {
+	static func authorizationWithData(_ json: JSONDictionary, urlPath: String) -> WebResource<AuthorizationToken> {
 		
-		let authorizationResource = WebResource<AuthorizationToken>(url: url, method: .post(json)) {
+		let authorizationResource = WebResource<AuthorizationToken>(urlPath: urlPath, method: .post(json)) {
 			
 			json in
 			guard let jsonDict = json as? JSONDictionary else {return nil}
@@ -33,7 +33,7 @@ extension AuthenticationInfo {
 		return authorizationResource
 	}
 	
-	static let url = URL(string:"http://private-d9e5b-oracodechallenge.apiary-mock.com/users/login")!
+	static let urlPath = "users/login"
 }
 
 

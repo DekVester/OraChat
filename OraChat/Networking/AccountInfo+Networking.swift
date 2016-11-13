@@ -12,19 +12,31 @@ extension AccountInfo {
 	
 	var register: WebResource<AuthorizationToken> {
 		
-		return AuthenticationInfo.authorizationWithData(json, url: type(of: self).registerUrl)
+		return AuthenticationInfo.authorizationWithData(json, urlPath: type(of: self).registerUrlPath)
+	}
+
+	var edit: WebResource<Void> {
+
+		let resource = WebResource<Void>(urlPath: type(of:self).profileUrlPath, method: .put(json)) {
+			(data: Any) in
+			return
+		}
+		
+		return resource
 	}
 	
-	static let me = WebResource<AccountInfo>(url: viewUrl) {
+	static let me = WebResource<AccountInfo>(urlPath: profileUrlPath) {
 		
 		json in
 		guard let jsonDict = json as? JSONDictionary else { return nil }
 		return AccountInfo(json: jsonDict)
 	}
 	
-	private static let viewUrl = URL(string: "http://private-d9e5b-oracodechallenge.apiary-mock.com/users/me")!
-	private static let registerUrl = URL(string: "http://private-d9e5b-oracodechallenge.apiary-mock.com/users/register")!
+	private static let profileUrlPath = "users/me"
+	private static let registerUrlPath = "users/register"
 }
+
+//MARK:- JSONSerializable
 
 extension AccountInfo: JSONSerializable {
 	
