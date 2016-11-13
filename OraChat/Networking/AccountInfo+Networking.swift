@@ -17,15 +17,15 @@ extension AccountInfo {
 
 	var edit: WebResource<Void> {
 
-		let resource = WebResource<Void>(urlPath: type(of:self).profileUrlPath, method: .put(json)) {
-			(data: Any) in
+		let resource = WebResource<Void>(path: type(of:self).profileUrlPath, method: .put(json)) {
+			_ in
 			return
 		}
 		
 		return resource
 	}
 	
-	static let me = WebResource<AccountInfo>(urlPath: profileUrlPath) {
+	static let me = WebResource<AccountInfo>(path: profileUrlPath) {
 		
 		json in
 		guard let jsonDict = json as? JSONDictionary else { return nil }

@@ -47,19 +47,23 @@ struct WebResource<A> {
 }
 
 extension WebResource {
-	init(urlPath: String, method: HttpMethod<Any> = .get, parseJSON: @escaping (Any) -> A?) {
-		self.urlPath = urlPath
-		self.method = method.map { json in
+	
+	init(path: String, method jsonBodyMethod: HttpMethod<Any> = .get, parseJson: @escaping (Any) -> A?) {
+		urlPath = path
+		method = jsonBodyMethod.map {
+			json in
 			try! JSONSerialization.data(withJSONObject: json, options: [])
 		}
-		self.parse = { data in
+		parse = {
+			data in
 			let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-			return json.flatMap(parseJSON)
+			return json.flatMap(parseJson)
 		}
 	}
 }
 
 extension URLRequest {
+	
 	init<A>(resource: WebResource<A>, baseUrl: URL) {
 		
 		let url = baseUrl.appendingPathComponent(resource.urlPath)

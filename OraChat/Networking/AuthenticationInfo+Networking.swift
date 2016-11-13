@@ -22,7 +22,7 @@ extension AuthenticationInfo {
 	
 	static func authorizationWithData(_ json: JSONDictionary, urlPath: String) -> WebResource<AuthorizationToken> {
 		
-		let authorizationResource = WebResource<AuthorizationToken>(urlPath: urlPath, method: .post(json)) {
+		let authorizationResource = WebResource<AuthorizationToken>(path: urlPath, method: .post(json)) {
 			
 			json in
 			guard let jsonDict = json as? JSONDictionary else {return nil}
