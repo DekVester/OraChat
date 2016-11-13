@@ -11,16 +11,13 @@ import UIKit
 class AuthenticationViewController: UITableViewController {
 
 	var info = AuthenticationInfo()
-	private var tableListener: TextFieldTableListener<AuthenticationInfo>?
 	
 	override func viewDidLoad() {
 	
 		super.viewDidLoad()
 
-		guard let tableView = tableView else {exit(1)}
-
 		weak var weakSelf = self
-		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView!) {
 			
 			(newInfo: AuthenticationInfo) in
 			
@@ -28,6 +25,8 @@ class AuthenticationViewController: UITableViewController {
 			strongSelf.info = newInfo
 		}
 	}
+	
+	private var tableListener: TextFieldTableListener<AuthenticationInfo>!
 }
 
 //MARK:- Actions

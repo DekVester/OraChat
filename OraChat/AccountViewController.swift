@@ -16,10 +16,8 @@ class AccountViewController: UITableViewController {
 		
 		super.viewDidLoad()
 		
-		guard let tableView = tableView else {exit(1)}
-		
 		weak var weakSelf = self
-		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView!) {
 			
 			(newInfo: AccountInfo) in
 			
@@ -40,15 +38,7 @@ class AccountViewController: UITableViewController {
 			if let newInfo = result {
 				
 				strongSelf.info = newInfo
-				
-				/*
-				Update UI
-				*/
-				if let tableListener = strongSelf.tableListener, let table = strongSelf.tableView {
-					
-					tableListener.item = newInfo
-					table.reloadData()
-				}
+				strongSelf.updateView()
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -56,7 +46,18 @@ class AccountViewController: UITableViewController {
 		}
 	}
 	
-	private var tableListener: TextFieldTableListener<AccountInfo>?
+	private func updateView() {
+		
+		guard isViewLoaded else {return}
+
+		/*
+		Update table stuff
+		*/
+		tableListener.item = info
+		tableView.reloadData()
+	}
+	
+	private var tableListener: TextFieldTableListener<AccountInfo>!
 }
 
 //MARK:- Actions

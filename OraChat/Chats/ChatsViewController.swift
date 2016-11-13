@@ -10,18 +10,14 @@ import UIKit
 
 class ChatsViewController: UITableViewController {
 	
-	var chats: [Chat] = []
-	var tableListener: ChatsTableListener?
-	
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
-		guard let tableView = tableView else {exit(1)}
 
-		tableListener = ChatsTableListener(chats: chats, preparingTable: tableView)
+		tableListener = ChatsTableListener(chats: chats, preparingTable: tableView!)
 		
 		weak var weakSelf = self
-		tableListener!.select = {
+		tableListener.select = {
 			
 			(chat: Chat, index: Int) in
 
@@ -31,4 +27,40 @@ class ChatsViewController: UITableViewController {
 			strongSelf.show(messagesVC, sender: nil)
 		}
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		weak var weakSelf = self
+		webservice.load(Chat.allWith(query: query, page: pagination.page, limit: pagination.limit)) {
+
+			(chats: [Chat]?, error: Error?) in
+			guard let strongSelf = weakSelf else {return}
+				
+			if let chats = chats {
+				
+				strongSelf.chats = chats
+				strongSelf.updateView()
+			}
+			else {
+				strongSelf.handle(error: error!)
+			}
+		}
+	}
+	
+	private func updateView() {
+		
+		guard isViewLoaded else {return}
+		
+		tableListener.chats = chats
+		tableView.reloadData()
+	}
+	
+	private var chats: [Chat] = []
+	private var query = ""
+	private var pagination = PaginationInfo(limit: chatsHunkSize)
+	
+	private var tableListener: ChatsTableListener!
+	
+	static private let chatsHunkSize = 10
 }

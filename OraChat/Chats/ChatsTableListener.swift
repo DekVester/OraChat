@@ -19,4 +19,14 @@ class ChatsTableListener: TableListener<Chat, ChatTableCell> {
 			(cell: ChatTableCell, chat: Chat, index: Int) in
 		}
 	}
+	
+	var chats: [Chat] {
+		
+		get {
+			return items
+		}
+		set(newChats) {
+			items = newChats
+		}
+	}
 }

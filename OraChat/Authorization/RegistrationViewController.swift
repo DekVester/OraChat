@@ -11,16 +11,13 @@ import UIKit
 class RegistrationViewController: UITableViewController {
 
 	var info = AccountInfo()
-	private var tableListener: TextFieldTableListener<AccountInfo>?
 	
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
-		
-		guard let tableView = tableView else {exit(1)}
-		
+
 		weak var weakSelf = self
-		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView!) {
 			
 			(newInfo: AccountInfo) in
 			
@@ -28,6 +25,8 @@ class RegistrationViewController: UITableViewController {
 			strongSelf.info = newInfo
 		}
 	}
+	
+	private var tableListener: TextFieldTableListener<AccountInfo>!
 }
 
 //MARK:- Actions
