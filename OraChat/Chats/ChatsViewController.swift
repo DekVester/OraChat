@@ -33,6 +33,16 @@ class ChatsViewController: UITableViewController {
 			strongSelf.performRequest(incremental: true)
 		}
 		
+		tableListener.search = {
+			
+			aQuery in
+			
+			guard let strongSelf = weakSelf else {return}
+			
+			strongSelf.query = aQuery
+			strongSelf.performRequest(incremental: false)
+		}
+		
 		updateView(prependingChats: nil)
 	}
 	

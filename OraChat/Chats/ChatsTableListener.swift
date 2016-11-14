@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ChatsTableListener: TableListener<Chat, ChatTableCell> {
+class ChatsTableListener: TableListener<Chat, ChatTableCell>, UISearchBarDelegate {
 	
 	init(chats someChats: [Chat], preparingTable table: UITableView) {
 
 		super.init(items: someChats, preparingTable: table)
 		
+		guard let searchBar = searchBar else {exit(1)}
+		searchBar.delegate = self
+
 		configure = {
 			
 			(cell: ChatTableCell, chat: Chat, index: Int) in
@@ -42,5 +45,32 @@ class ChatsTableListener: TableListener<Chat, ChatTableCell> {
 		}
 		
 		return indexPaths
+	}
+	
+	//MARK:- Search Bar
+
+	typealias ChatsTableListenerSearch = (String) -> Void
+
+	var search: ChatsTableListenerSearch?
+
+	/*
+	Consider to use this for search
+	*/
+//	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//		
+//		search?(searchText)
+//	}
+	
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		
+		if let searchText = searchBar.text {
+			search?(searchText)
+		}
+		
+		searchBar.resignFirstResponder()
+	}
+	
+	private weak var searchBar: UISearchBar? {
+		return table?.tableHeaderView as? UISearchBar
 	}
 }

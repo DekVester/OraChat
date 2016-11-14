@@ -74,7 +74,7 @@ extension PaginatedCollection where Item: CollectionRequestable {
 	
 	private func andQueryParameterFor(_ query: String) -> String {
 		
-		let parameter = query.isEmpty ? "" : "&q=\(query)"
+		let parameter = query.isEmpty ? "" : "&q=\(query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)"
 		return parameter
 	}
 }

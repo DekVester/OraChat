@@ -14,6 +14,20 @@ class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSourc
 	typealias TableListenerConfigure = (Cell, Item, Int) -> Void
 	typealias TableListenerSelect = (Item, Int) -> Void
 	
+	init(items someItems: [Item], preparingTable aTable: UITableView) {
+		
+		items = someItems
+		
+		super.init()
+		
+		aTable.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
+		
+		aTable.dataSource = self
+		aTable.delegate = self
+		
+		table = aTable
+	}
+	
 	var items: [Item] {
 		didSet {
 			table?.refreshControl?.endRefreshing()
@@ -51,20 +65,6 @@ class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSourc
 	dynamic private func onMore() {
 
 		refresh?()
-	}
-	
-	init(items someItems: [Item], preparingTable aTable: UITableView) {
-		
-		items = someItems
-		
-		super.init()
-		
-		aTable.register(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
-
-		aTable.dataSource = self
-		aTable.delegate = self
-		
-		table = aTable
 	}
 	
 	//MARK:- Cell properties
