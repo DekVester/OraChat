@@ -11,6 +11,6 @@ import UIKit
 struct Message {
 
 	let text: String
-	let creationDate: Date
-	let userName: String
+	let creationDate: Date?
+	let userName: String?
 }

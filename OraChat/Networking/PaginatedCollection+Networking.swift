@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK:- List
 
 extension PaginatedCollection where Item: CollectionRequestable {
 	
@@ -20,18 +21,8 @@ extension PaginatedCollection where Item: CollectionRequestable {
 	}
 	
 	private func page(next: Bool, withQuery query: String) -> WebResource<PaginatedCollection<Item>> {
-
-		var domainSubpath = domain ?? ""
-		if !domainSubpath.isEmpty {
-			domainSubpath += "/"
-		}
 		
-		var idSubpath = id != nil ? "\(id!)" : ""
-		if !idSubpath.isEmpty {
-			idSubpath += "/"
-		}
-		
-		let path = domainSubpath + idSubpath + Item.listUrlPath + "?" + paginationParameters(next) + andQueryParameterFor(query)
+		let path = urlPath + Item.domain + "?" + paginationParameters(next) + andQueryParameterFor(query)
 		
 		let resource = WebResource<PaginatedCollection<Item>>(path: path) {
 			
@@ -59,7 +50,7 @@ extension PaginatedCollection where Item: CollectionRequestable {
 	
 	private init(originalCollection collection: PaginatedCollection<Item>, items newItems: [Item], pagination newPagination: Pagination) {
 		
-		domain = collection.domain
+		parentDomain = collection.parentDomain
 		id = collection.id
 		
 		items = newItems
@@ -76,5 +67,44 @@ extension PaginatedCollection where Item: CollectionRequestable {
 		
 		let parameter = query.isEmpty ? "" : "&q=\(query.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)"
 		return parameter
+	}
+}
+
+//MARK:- Creation
+
+extension PaginatedCollection where Item: CollectionRequestable {
+	
+	func new(item: Item) -> WebResource<Item> {
+		
+		let path = urlPath + Item.domain
+		let resource = WebResource<Item>(path: path, method: .post(item.json)) {
+			
+			json in
+			guard let jsonData = json as? JSONDictionary else {return nil}
+			guard let itemData = jsonData["data"] as? JSONDictionary else {return nil}
+			
+			return Item(json: itemData)
+		}
+		
+		return resource
+	}
+}
+
+
+fileprivate extension PaginatedCollection {
+	
+	var urlPath: String {
+		
+		var domainSubpath = parentDomain ?? ""
+		if !domainSubpath.isEmpty {
+			domainSubpath += "/"
+		}
+		
+		var idSubpath = id != nil ? "\(id!)" : ""
+		if !idSubpath.isEmpty {
+			idSubpath += "/"
+		}
+		
+		return domainSubpath + idSubpath
 	}
 }

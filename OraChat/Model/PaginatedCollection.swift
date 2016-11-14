@@ -11,15 +11,15 @@ import Foundation
 
 struct PaginatedCollection<Item> {
 
-	let domain: String?
+	let parentDomain: String?
 	let id: Int?
 	
 	let items: [Item]
 	let pagination: Pagination
 	
-	init(domain aDomain: String?, id anId: Int?, pagination aPagination: Pagination) {
-		
-		domain = aDomain
+	init(parentDomain domain: String?, id anId: Int?, pagination aPagination: Pagination) {
+
+		parentDomain = domain
 		id = anId
 		items = []
 		pagination = aPagination
@@ -35,9 +35,9 @@ struct PaginatedCollection<Item> {
 	
 	private init(left: PaginatedCollection<Item>, right: PaginatedCollection<Item>) {
 		
-		assert(left.domain == right.domain && left.id == right.id, "Collections being concatenated must be of the same domain and identifier")
+		assert(left.parentDomain == right.parentDomain && left.id == right.id, "Collections being concatenated must be of the same domain and identifier")
 		
-		domain = left.domain
+		parentDomain = left.parentDomain
 		id = left.id
 		
 		items = left.items + right.items

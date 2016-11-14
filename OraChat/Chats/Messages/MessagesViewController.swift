@@ -20,7 +20,7 @@ class MessagesViewController: UITableViewController {
 		
 		didSet {
 
-			messages = PaginatedCollection<Message>(domain: Chat.listUrlPath, id: chat.id, pagination: Pagination(limit: MessagesViewController.messagesHunkSize))
+			messages = PaginatedCollection<Message>(parentDomain: Chat.domain, id: chat.id, pagination: Pagination(limit: MessagesViewController.messagesHunkSize))
 			performRequest(incremental: false)
 		}
 	}

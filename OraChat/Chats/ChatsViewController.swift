@@ -117,7 +117,7 @@ class ChatsViewController: UITableViewController {
 		tableListener.refreshEnabled = chats.pagination.nextPageAvailable
 	}
 
-	private var chats = PaginatedCollection<Chat>(domain: nil, id: nil, pagination: Pagination(limit: chatsHunkSize))
+	private var chats = PaginatedCollection<Chat>(parentDomain: nil, id: nil, pagination: Pagination(limit: chatsHunkSize))
 	private var query = ""
 	private var latestTask: URLSessionDataTask?
 	

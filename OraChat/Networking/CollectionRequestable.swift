@@ -11,5 +11,5 @@ import Foundation
 
 protocol CollectionRequestable: JSONSerializable {
 	
-	static var listUrlPath: String {get}
+	static var domain: String {get}
 }

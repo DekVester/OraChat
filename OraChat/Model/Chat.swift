@@ -10,8 +10,8 @@ import Foundation
 
 struct Chat {
 	
-	let id: Int
+	let id: Int?
 	let name: String
-	let creationDate: Date
-	let lastMessage: Message
+	let creationDate: Date?
+	let lastMessage: Message?
 }

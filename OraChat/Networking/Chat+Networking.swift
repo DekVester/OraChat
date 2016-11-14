@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 extension Chat: CollectionRequestable {
 
 	/*
@@ -83,8 +84,8 @@ extension Chat: CollectionRequestable {
 	
 	var json: JSONDictionary {
 		
-		return ["":""]
+		return ["name": name]
 	}
 	
-	static let listUrlPath = "chats"
+	static let domain = "chats"
 }

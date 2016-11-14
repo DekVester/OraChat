@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 extension Message: CollectionRequestable {
 	
 	/*
@@ -37,8 +38,8 @@ extension Message: CollectionRequestable {
 	}
 	
 	var json: JSONDictionary {
-		return ["":""]
+		return ["message": text]
 	}
 
-	static let listUrlPath = "messages"
+	static let domain = "messages"
 }
