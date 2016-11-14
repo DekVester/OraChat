@@ -14,7 +14,7 @@ class ChatsViewController: UITableViewController {
 		
 		super.viewDidLoad()
 
-		tableListener = ChatsTableListener(chats: chats.items, hasMore: chats.pagination.nextPageAvailable, preparingTable: tableView!)
+		tableListener = ChatsTableListener(chats: chats.items, preparingTable: tableView!)
 		
 		weak var weakSelf = self
 		tableListener.select = {
@@ -26,6 +26,14 @@ class ChatsViewController: UITableViewController {
 			let messagesVC = strongSelf.storyboard!.instantiateViewController(withIdentifier: MessagesViewController.storyboardIdentifier)
 			strongSelf.show(messagesVC, sender: nil)
 		}
+
+		tableListener.refresh = {
+			
+			guard let strongSelf = weakSelf else {return}
+			strongSelf.performRequest(incremental: true)
+		}
+		
+		updateView(prependingChats: nil)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -53,17 +61,19 @@ class ChatsViewController: UITableViewController {
 			(newChats: PaginatedCollection<Chat>?, error: Error?) in
 			guard let strongSelf = weakSelf else {return}
 			
+			strongSelf.latestTask = nil
+			
 			if var newChats = newChats {
 
-				var appendingChats: PaginatedCollection<Chat>?
+				var prependingChats: PaginatedCollection<Chat>?
 
 				if incremental {
-					appendingChats = newChats
-					newChats = strongSelf.chats.append(collection: newChats)
+					prependingChats = newChats
+					newChats = strongSelf.chats.prepend(collection: newChats)
 				}
 				
 				strongSelf.chats = newChats
-				strongSelf.updateView(appendingChats: appendingChats)
+				strongSelf.updateView(prependingChats: prependingChats)
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -71,26 +81,28 @@ class ChatsViewController: UITableViewController {
 		}
 	}
 	
-	private func updateView(appendingChats: PaginatedCollection<Chat>?) {
+	private func updateView(prependingChats: PaginatedCollection<Chat>?) {
 		
 		guard isViewLoaded else {return}
 		
-		if let appendingChats = appendingChats {
+		if let prependingChats = prependingChats {
 			
 			/*
 			Incremental
 			*/
-			let indexPaths = tableListener.append(chats: appendingChats.items, hasMore: self.chats.pagination.nextPageAvailable)
-			tableView.insertRows(at: indexPaths, with: .bottom)
+			let indexPaths = tableListener.prepend(chats: prependingChats.items)
+			tableView.insertRows(at: indexPaths, with: .top)
 		}
 		else {
 			
 			/*
 			Full reload
 			*/
-			tableListener.set(chats: self.chats.items, hasMore: self.chats.pagination.nextPageAvailable)
+			tableListener.chats = chats.items
 			tableView.reloadData()
 		}
+		
+		tableListener.refreshEnabled = chats.pagination.nextPageAvailable
 	}
 
 	private var chats = PaginatedCollection<Chat>(domain: nil, id: nil, pagination: Pagination(limit: chatsHunkSize))

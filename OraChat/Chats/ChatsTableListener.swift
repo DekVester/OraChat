@@ -10,42 +10,37 @@ import UIKit
 
 class ChatsTableListener: TableListener<Chat, ChatTableCell> {
 	
-	init(chats someChats: [Chat], hasMore more: Bool, preparingTable table: UITableView) {
-		
-		hasMore = more
-		
+	init(chats someChats: [Chat], preparingTable table: UITableView) {
+
 		super.init(items: someChats, preparingTable: table)
 		
 		configure = {
 			
 			(cell: ChatTableCell, chat: Chat, index: Int) in
+			cell.textLabel?.text = chat.name
 		}
 	}
 	
 	var chats: [Chat] {
-		return items
+		
+		get {
+			return items
+		}
+		set(newChats) {
+			items = newChats
+		}
 	}
 	
-	func set(chats newChats: [Chat], hasMore more: Bool) {
-		items = newChats
-		hasMore = more
-	}
-	
-	func append(chats appendingChats: [Chat], hasMore more: Bool) -> [IndexPath] {
+	func prepend(chats prependingChats: [Chat]) -> [IndexPath] {
 
-		let firstIndex = items.count
+		items.insert(contentsOf: prependingChats, at: 0)
 		
-		items.append(contentsOf: appendingChats)
-		hasMore = more
-		
-		let count = items.count
-		let range: CountableRange = firstIndex..<count
+		let range: CountableRange = 0..<prependingChats.count
 		
 		let indexPaths = range.map {
 			IndexPath(row: $0, section: 0)
 		}
+		
 		return indexPaths
 	}
-	
-	private var hasMore: Bool
 }

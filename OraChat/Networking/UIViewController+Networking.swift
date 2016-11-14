@@ -17,8 +17,16 @@ extension UIViewController {
 		/*
 		Basic network errors handling logic - to be enhanced...
 		*/
-		showAuthentication()
-		return true
+		var handled = false
+		
+		let nserror = error as NSError
+		if nserror.code == NSURLErrorUserAuthenticationRequired {
+		
+			showAuthentication()
+			handled = true
+		}
+		
+		return handled
 	}
 	
 	func showAuthentication() {
