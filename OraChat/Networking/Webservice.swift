@@ -66,8 +66,16 @@ extension URLRequest {
 	
 	init<A>(resource: WebResource<A>, baseUrl: URL) {
 		
-		let url = baseUrl.appendingPathComponent(resource.urlPath)
+		let path = baseUrl.absoluteString + resource.urlPath
+		let url = URL(string: path)!
+//		let url = baseUrl.appendingPathComponent(path)
 		self.init(url: url)
+		
+		/*
+		JSON content
+		*/
+		setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+		setValue("application/json", forHTTPHeaderField: "Accept")
 		
 		httpMethod = resource.method.text
 		
@@ -86,7 +94,7 @@ final class Webservice {
 	
 	var authorizationToken: String?
 	
-	func load<A>(_ resource: WebResource<A>, completion: @escaping (A?, Error?) -> Void) {
+	@discardableResult func load<A>(_ resource: WebResource<A>, completion: @escaping (A?, Error?) -> Void) -> URLSessionDataTask {
 
 		var request = URLRequest(resource: resource, baseUrl: baseUrl)
 		
@@ -96,15 +104,44 @@ final class Webservice {
 		if let token = authorizationToken {
 			request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 		}
-		
+//		else {
+//			request.addValue("", forHTTPHeaderField: "Authorization")
+//		}
+
 		let task = session.dataTask(with: request) {
 			
 			(data, response, error) in
 
-			completion(data.flatMap(resource.parse), error)
+			/*
+			Basic error handling logic - to be enhanced
+			*/
+			if let error = error {
+				completion(nil, error)
+				return
+			}
+
+			guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 else {
+			
+				let error = NSError(domain: Webservice.errorDomain, code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: NSLocalizedString("Network error", comment: "Webservice")])
+				completion(nil, error)
+				return
+			}
+			
+			guard let result = data.flatMap(resource.parse) else {
+				
+				let error = NSError(domain: Webservice.errorDomain, code: 0, userInfo: [NSLocalizedFailureReasonErrorKey : NSLocalizedString("Invalid response", comment: "Webservice")])
+				completion(nil, error)
+				return
+			}
+			
+			completion(result, nil)
 		}
 		task.resume()
+		
+		return task
 	}
 	
-	private let baseUrl = URL(string: "http://private-d9e5b-oracodechallenge.apiary-mock.com/")!
+	private let baseUrl = URL(string: "https://private-d9e5b-oracodechallenge.apiary-mock.com/")!
+	
+	private static let errorDomain = Bundle.main.bundleIdentifier!
 }

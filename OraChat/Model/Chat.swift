@@ -10,6 +10,7 @@ import Foundation
 
 struct Chat {
 	
+	let id: Int
 	let name: String
 	let creationDate: Date
 	let lastMessage: Message

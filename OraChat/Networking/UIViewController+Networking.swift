@@ -13,7 +13,10 @@ import UIKit
 extension UIViewController {
 	
 	@discardableResult func handle(error: Error) -> Bool {
-		
+
+		/*
+		Basic network errors handling logic - to be enhanced...
+		*/
 		showAuthentication()
 		return true
 	}

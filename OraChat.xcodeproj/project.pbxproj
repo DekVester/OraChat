@@ -11,6 +11,7 @@
 		320EEFB21DD7551400AB7BA2 /* AccountInfo+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */; };
 		320EEFB41DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */; };
 		320EEFB61DD7741400AB7BA2 /* UIViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */; };
+		32115E2F1DD9B6DD0082C77E /* Pagination+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32115E2E1DD9B6DD0082C77E /* Pagination+Json.swift */; };
 		3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */; };
 		3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */; };
 		3215F5C21DD6545E00E05BDA /* ChatTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */; };
@@ -38,7 +39,10 @@
 		32D024641DD8AA460044871C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024621DD8AA460044871C /* Message.swift */; };
 		32D024661DD8B3900044871C /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */; };
 		32D024681DD8B6A30044871C /* Message+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024671DD8B6A30044871C /* Message+Networking.swift */; };
-		32D0246A1DD8C3040044871C /* PaginationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024691DD8C3040044871C /* PaginationInfo.swift */; };
+		32D0246C1DD8C94B0044871C /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0246B1DD8C94B0044871C /* Pagination.swift */; };
+		32D0246E1DD8C9750044871C /* PaginatedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0246D1DD8C9750044871C /* PaginatedCollection.swift */; };
+		32D024741DD8FF750044871C /* PaginatedCollection+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024731DD8FF750044871C /* PaginatedCollection+Networking.swift */; };
+		32D024761DD900350044871C /* CollectionRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024751DD900350044871C /* CollectionRequestable.swift */; };
 		32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD0791DD6466B0056A2CD /* AccountViewController.swift */; };
 		32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */; };
 		32FFD0801DD646DB0056A2CD /* AccountInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */; };
@@ -63,6 +67,7 @@
 		320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+Networking.swift"; sourceTree = "<group>"; };
 		320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationInfo+Networking.swift"; sourceTree = "<group>"; };
 		320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Networking.swift"; sourceTree = "<group>"; };
+		32115E2E1DD9B6DD0082C77E /* Pagination+Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pagination+Json.swift"; sourceTree = "<group>"; };
 		3215F5BD1DD6524800E05BDA /* ChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableCell.swift; sourceTree = "<group>"; };
 		3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatTableCell.xib; sourceTree = "<group>"; };
@@ -94,7 +99,10 @@
 		32D024621DD8AA460044871C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3339DateFormatter.swift; sourceTree = "<group>"; };
 		32D024671DD8B6A30044871C /* Message+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+Networking.swift"; sourceTree = "<group>"; };
-		32D024691DD8C3040044871C /* PaginationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationInfo.swift; sourceTree = "<group>"; };
+		32D0246B1DD8C94B0044871C /* Pagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		32D0246D1DD8C9750044871C /* PaginatedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedCollection.swift; sourceTree = "<group>"; };
+		32D024731DD8FF750044871C /* PaginatedCollection+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaginatedCollection+Networking.swift"; sourceTree = "<group>"; };
+		32D024751DD900350044871C /* CollectionRequestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRequestable.swift; sourceTree = "<group>"; };
 		32FFD0791DD6466B0056A2CD /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+View.swift"; sourceTree = "<group>"; };
@@ -125,12 +133,15 @@
 		320EEFAE1DD754F500AB7BA2 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */,
 				320EEFAF1DD754F500AB7BA2 /* Webservice.swift */,
+				320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */,
 				320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */,
 				320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */,
 				32D0245F1DD8A9B50044871C /* Chat+Networking.swift */,
 				32D024671DD8B6A30044871C /* Message+Networking.swift */,
+				32D024731DD8FF750044871C /* PaginatedCollection+Networking.swift */,
+				32115E2E1DD9B6DD0082C77E /* Pagination+Json.swift */,
+				32D024751DD900350044871C /* CollectionRequestable.swift */,
 				324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */,
 				32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */,
 			);
@@ -193,7 +204,6 @@
 				32361D651DD50D25001DC6AA /* Assets.xcassets */,
 				32361D671DD50D25001DC6AA /* LaunchScreen.storyboard */,
 				32361D6A1DD50D25001DC6AA /* Info.plist */,
-				32D024691DD8C3040044871C /* PaginationInfo.swift */,
 			);
 			path = OraChat;
 			sourceTree = "<group>";
@@ -239,6 +249,8 @@
 				32FFD07C1DD646DB0056A2CD /* AccountInfo+View.swift */,
 				32D024611DD8AA460044871C /* Chat.swift */,
 				32D024621DD8AA460044871C /* Message.swift */,
+				32D0246D1DD8C9750044871C /* PaginatedCollection.swift */,
+				32D0246B1DD8C94B0044871C /* Pagination.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D024741DD8FF750044871C /* PaginatedCollection+Networking.swift in Sources */,
 				32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */,
 				3215F5D51DD65E4700E05BDA /* MessagesTableListener.swift in Sources */,
 				32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */,
@@ -360,13 +373,14 @@
 				3215F5D71DD65E4700E05BDA /* MessageTableCell.swift in Sources */,
 				324F4EBC1DD8736B001A5915 /* JSONSerializable.swift in Sources */,
 				32D024601DD8A9B50044871C /* Chat+Networking.swift in Sources */,
+				32D024761DD900350044871C /* CollectionRequestable.swift in Sources */,
 				32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */,
 				32D024681DD8B6A30044871C /* Message+Networking.swift in Sources */,
 				32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */,
 				32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */,
 				3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */,
 				32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */,
-				32D0246A1DD8C3040044871C /* PaginationInfo.swift in Sources */,
+				32D0246C1DD8C94B0044871C /* Pagination.swift in Sources */,
 				32D024641DD8AA460044871C /* Message.swift in Sources */,
 				320EEFB21DD7551400AB7BA2 /* AccountInfo+Networking.swift in Sources */,
 				3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */,
@@ -375,10 +389,12 @@
 				32FFD0821DD646DB0056A2CD /* AuthenticationInfo+View.swift in Sources */,
 				320EEFB61DD7741400AB7BA2 /* UIViewController+Networking.swift in Sources */,
 				32C984571DD5FF000062FA44 /* TextFieldTableRepresentable.swift in Sources */,
+				32D0246E1DD8C9750044871C /* PaginatedCollection.swift in Sources */,
 				320EEFB41DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift in Sources */,
 				32FFD0801DD646DB0056A2CD /* AccountInfo+View.swift in Sources */,
 				32D024631DD8AA460044871C /* Chat.swift in Sources */,
 				32FFD0851DD647050056A2CD /* AuthenticationViewController.swift in Sources */,
+				32115E2F1DD9B6DD0082C77E /* Pagination+Json.swift in Sources */,
 				32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */,
 				3215F5D61DD65E4700E05BDA /* MessagesViewController.swift in Sources */,
 				32C9845A1DD617EF0062FA44 /* TextFieldTableRepresentation.swift in Sources */,

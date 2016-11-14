@@ -8,37 +8,8 @@
 
 import Foundation
 
-extension Chat {
-	
-	static func allWith(query: String?, page: Int, limit: Int) -> WebResource<[Chat]> {
-		
-		/*
-		Assemble path
-		*/
-		var path = listUrlPath + "page=\(page)&limit=\(limit)"
-		if let query = query {
-			path += "q=\(query)"
-		}
+extension Chat: CollectionRequestable {
 
-		/*
-		Create a reource
-		*/
-		let resource = WebResource<[Chat]>(path: path, method: .get) {
-			
-			json in
-			
-			guard let dictionaries = json as? [JSONDictionary] else {return nil}
-			return dictionaries.flatMap(Chat.init)
-		}
-		
-		return resource
-	}
-	
-	private static let listUrlPath = "chats?"//q=q&page=page&limit=limit
-}
-
-extension Chat: JSONSerializable {
-	
 	/*
 	{
 		"success": true,
@@ -96,14 +67,15 @@ extension Chat: JSONSerializable {
 	}
 	*/
 	init?(json: JSONDictionary) {
+
+		guard let anId = json["id"] as? Int else {return nil}
+		guard let aName = json["name"] as? String else {return nil}
 		
-		guard let jsonData = json["data"] as? JSONDictionary else {return nil}
-		guard let aName = jsonData["name"] as? String else {return nil}
+		guard let dateString = json["created"] as? String, let aCreationDate = DateFormatter.RFC3339.date(from: dateString) else {return nil}
 		
-		guard let dateString = jsonData["created"] as? String, let aCreationDate = DateFormatter.RFC3339.date(from: dateString) else {return nil}
+		guard let lastMessageData = json["last_message"] as? JSONDictionary, let theLastMessage = Message(json: lastMessageData) else {return nil}
 		
-		guard let lastMessageData = jsonData["last_message"] as? JSONDictionary, let theLastMessage = Message(json: lastMessageData) else {return nil}
-		
+		id = anId
 		name = aName
 		creationDate = aCreationDate
 		lastMessage = theLastMessage
@@ -113,4 +85,6 @@ extension Chat: JSONSerializable {
 		
 		return ["":""]
 	}
+	
+	static let listUrlPath = "chats"
 }

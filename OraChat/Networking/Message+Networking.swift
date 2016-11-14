@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Message: JSONSerializable {
+extension Message: CollectionRequestable {
 	
 	/*
 	{
@@ -39,4 +39,6 @@ extension Message: JSONSerializable {
 	var json: JSONDictionary {
 		return ["":""]
 	}
+
+	static let listUrlPath = "messages"
 }
