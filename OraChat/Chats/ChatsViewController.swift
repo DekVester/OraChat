@@ -14,7 +14,7 @@ class ChatsViewController: UITableViewController {
 		
 		super.viewDidLoad()
 
-		tableListener = ChatsTableListener(chats: chats.items, preparingTable: tableView!)
+		tableListener = ChatsTableListener(preparingTable: tableView!)
 		
 		weak var weakSelf = self
 		tableListener.select = {
@@ -23,7 +23,9 @@ class ChatsViewController: UITableViewController {
 
 			guard let strongSelf = weakSelf else {return}
 			
-			let messagesVC = strongSelf.storyboard!.instantiateViewController(withIdentifier: MessagesViewController.storyboardIdentifier)
+			let messagesVC = strongSelf.storyboard!.instantiateViewController(withIdentifier: MessagesViewController.storyboardIdentifier) as! MessagesViewController
+			messagesVC.chat = chat
+
 			strongSelf.show(messagesVC, sender: nil)
 		}
 

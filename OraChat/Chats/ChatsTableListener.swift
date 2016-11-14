@@ -10,9 +10,9 @@ import UIKit
 
 class ChatsTableListener: TableListener<Chat, ChatTableCell>, UISearchBarDelegate {
 	
-	init(chats someChats: [Chat], preparingTable table: UITableView) {
+	init(preparingTable table: UITableView) {
 
-		super.init(items: someChats, preparingTable: table)
+		super.init(items: [], preparingTable: table)
 		
 		guard let searchBar = searchBar else {exit(1)}
 		searchBar.delegate = self
