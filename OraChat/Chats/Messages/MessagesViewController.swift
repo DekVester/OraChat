@@ -71,7 +71,7 @@ class MessagesViewController: UIViewController {
 				let newMessages = strongSelf.messages.add(item: message)
 				strongSelf.messages = newMessages
 				
-				strongSelf.updateTableView(addingMessages: [message])
+				strongSelf.updateTableView(addingMessages: [message], scrollToLast: true)
 				strongSelf.updateChatLastMessageAndNotify()
 			}
 			else {
@@ -186,7 +186,7 @@ class MessagesViewController: UIViewController {
 		updateWaitView()
 	}
 	
-	private func updateTableView(addingMessages: [Message]?) {
+	private func updateTableView(addingMessages: [Message]?, scrollToLast: Bool = false) {
 		
 		guard isViewLoaded else {return}
 		
@@ -208,6 +208,15 @@ class MessagesViewController: UIViewController {
 		}
 		
 		tableListener.refreshEnabled = messages.pagination.nextPageAvailable || messages.items.count == 0
+		
+		if scrollToLast {
+			
+			let lastIndex = messages.items.count - 1
+			if lastIndex >= 0 {
+				let last = IndexPath(row: lastIndex, section: 0)
+				tableView.scrollToRow(at: last, at: .bottom, animated: true)
+			}
+		}
 	}
 	
 	private func updateWaitView() {

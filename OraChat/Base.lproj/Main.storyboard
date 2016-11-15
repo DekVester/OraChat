@@ -147,11 +147,11 @@
                             <constraint firstAttribute="trailing" secondItem="5wO-Xk-D5E" secondAttribute="trailing" id="3On-CT-mzS"/>
                             <constraint firstItem="5wO-Xk-D5E" firstAttribute="leading" secondItem="RQH-aM-3Fq" secondAttribute="leading" id="P4u-Sd-HuC"/>
                             <constraint firstItem="HgB-lM-YPO" firstAttribute="centerX" secondItem="RQH-aM-3Fq" secondAttribute="centerX" id="PUG-yk-Owv"/>
-                            <constraint firstItem="pR8-fa-gxO" firstAttribute="top" secondItem="5wO-Xk-D5E" secondAttribute="bottom" id="bhV-tg-eAT"/>
                             <constraint firstItem="HgB-lM-YPO" firstAttribute="centerY" secondItem="RQH-aM-3Fq" secondAttribute="centerY" constant="50" id="eb2-F8-JYN"/>
                             <constraint firstItem="5wO-Xk-D5E" firstAttribute="top" secondItem="RQH-aM-3Fq" secondAttribute="top" id="gGR-Kx-LwH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bqX-h4-h7o" secondAttribute="trailing" constant="29" id="goC-5f-ecS"/>
                             <constraint firstItem="pR8-fa-gxO" firstAttribute="top" secondItem="bqX-h4-h7o" secondAttribute="bottom" constant="34" id="kDN-sx-82O"/>
+                            <constraint firstAttribute="bottom" secondItem="5wO-Xk-D5E" secondAttribute="bottom" id="xBu-BL-BPb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="A Chat" id="aJn-fY-lF5"/>
