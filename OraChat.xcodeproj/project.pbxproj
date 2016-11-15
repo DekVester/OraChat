@@ -176,8 +176,8 @@
 			children = (
 				3215F5D21DD65E4700E05BDA /* MessagesViewController.swift */,
 				3215F5D11DD65E4700E05BDA /* MessagesTableListener.swift */,
-				3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */,
 				3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */,
+				3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */,
 				32B7462E1DDB8F26002D7C88 /* CreateMessageViewController.swift */,
 			);
 			path = Messages;

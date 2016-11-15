@@ -10,15 +10,14 @@ import UIKit
 
 class MessageTableCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+	@IBOutlet weak var bubbleView: UIView!
+	
+	@IBOutlet weak var contentLabel: UILabel!
+	@IBOutlet weak var footerLabel: UILabel!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		bubbleView.layer.cornerRadius = 20.0
+	}
 }

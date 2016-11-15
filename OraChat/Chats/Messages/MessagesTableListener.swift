@@ -17,7 +17,9 @@ class MessagesTableListener: TableListener <Message, MessageTableCell> {
 		configure = {
 			
 			(cell: MessageTableCell, message: Message, indexPath: IndexPath) in
-			cell.textLabel?.text = message.text
+			
+			cell.contentLabel.text = message.text
+			cell.footerLabel.text = message.userDateText
 		}
 	}
 	
