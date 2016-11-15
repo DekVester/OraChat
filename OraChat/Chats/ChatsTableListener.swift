@@ -30,7 +30,10 @@ class ChatsTableListener: TableListener<Chat, ChatTableCell>, UISearchBarDelegat
 
 		configure = {
 			(cell: ChatTableCell, chat: Chat, indexPath: IndexPath) in
-			cell.textLabel?.text = chat.name
+			
+			cell.nameAuthorLabel.text = chat.nameAndAuthorText
+			cell.lastMessageLabel.text = chat.lastMessageText
+			cell.lastUserDateLabel.text = chat.lastUserDateText
 		}
 	}
 	

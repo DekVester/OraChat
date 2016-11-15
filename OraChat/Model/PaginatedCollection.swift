@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct PaginatedCollection<Item> {
+struct PaginatedCollection<Item: Equatable> {
 
 	let parentDomain: String?
 	let id: String?
@@ -31,6 +31,27 @@ struct PaginatedCollection<Item> {
 
 	func add(collection: PaginatedCollection<Item>) -> PaginatedCollection<Item> {
 		return PaginatedCollection<Item>(left: self, right: collection)
+	}
+	
+	func replace(item: Item) -> PaginatedCollection<Item> {
+		return PaginatedCollection<Item>(original: self, replacingItem: item)
+	}
+
+	private init(original: PaginatedCollection<Item>, replacingItem item: Item) {
+		
+		parentDomain = original.parentDomain
+		id = original.id
+		pagination = original.pagination
+		
+		guard let itemIndex = original.items.index(of: item) else {
+			items = original.items
+			return
+		}
+		
+		var newItems = original.items
+		newItems[itemIndex] = item
+		
+		items = newItems
 	}
 	
 	private init(original: PaginatedCollection<Item>, appendingItem item: Item) {

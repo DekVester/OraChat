@@ -12,6 +12,7 @@ struct Message {
 
 	let id: String?
 	let text: String
+	let author: String?
 	let creationDate: Date?
 	let userName: String?
 	
@@ -20,6 +21,7 @@ struct Message {
 		text = aText
 		
 		id = nil
+		author = nil
 		creationDate = nil
 		userName = nil
 	}

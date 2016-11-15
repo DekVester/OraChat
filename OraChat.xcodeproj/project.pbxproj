@@ -33,6 +33,8 @@
 		32B7462C1DDB8AC6002D7C88 /* AccountInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7462A1DDB8AC6002D7C88 /* AccountInfo+View.swift */; };
 		32B7462D1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7462B1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift */; };
 		32B7462F1DDB8F26002D7C88 /* CreateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7462E1DDB8F26002D7C88 /* CreateMessageViewController.swift */; };
+		32B746311DDB9C99002D7C88 /* Chat+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B746301DDB9C99002D7C88 /* Chat+View.swift */; };
+		32B746331DDB9F68002D7C88 /* Message+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B746321DDB9F68002D7C88 /* Message+View.swift */; };
 		32C9842F1DD5CE250062FA44 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C9842D1DD5CE250062FA44 /* Authorization.storyboard */; };
 		32C984541DD5FF000062FA44 /* TextFieldTableListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9844F1DD5FF000062FA44 /* TextFieldTableListener.swift */; };
 		32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */; };
@@ -96,6 +98,8 @@
 		32B7462A1DDB8AC6002D7C88 /* AccountInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+View.swift"; sourceTree = "<group>"; };
 		32B7462B1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationInfo+View.swift"; sourceTree = "<group>"; };
 		32B7462E1DDB8F26002D7C88 /* CreateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMessageViewController.swift; sourceTree = "<group>"; };
+		32B746301DDB9C99002D7C88 /* Chat+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chat+View.swift"; sourceTree = "<group>"; };
+		32B746321DDB9F68002D7C88 /* Message+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+View.swift"; sourceTree = "<group>"; };
 		32C9842E1DD5CE250062FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authorization.storyboard; sourceTree = "<group>"; };
 		32C9844F1DD5FF000062FA44 /* TextFieldTableListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableListener.swift; sourceTree = "<group>"; };
 		32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 			children = (
 				32B7462B1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift */,
 				32B7462A1DDB8AC6002D7C88 /* AccountInfo+View.swift */,
+				32B746301DDB9C99002D7C88 /* Chat+View.swift */,
+				32B746321DDB9F68002D7C88 /* Message+View.swift */,
 				323479871DDB611E001BA2CB /* DateFormatter+View.swift */,
 			);
 			path = View;
@@ -400,10 +406,12 @@
 				3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */,
 				32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */,
 				32D0246C1DD8C94B0044871C /* Pagination.swift in Sources */,
+				32B746311DDB9C99002D7C88 /* Chat+View.swift in Sources */,
 				32D024641DD8AA460044871C /* Message.swift in Sources */,
 				320EEFB21DD7551400AB7BA2 /* AccountInfo+Networking.swift in Sources */,
 				32B7462D1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift in Sources */,
 				3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */,
+				32B746331DDB9F68002D7C88 /* Message+View.swift in Sources */,
 				323479881DDB611E001BA2CB /* DateFormatter+View.swift in Sources */,
 				32C984541DD5FF000062FA44 /* TextFieldTableListener.swift in Sources */,
 				320EEFB01DD754F500AB7BA2 /* Webservice.swift in Sources */,

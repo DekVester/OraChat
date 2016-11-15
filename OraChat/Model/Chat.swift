@@ -12,6 +12,7 @@ struct Chat {
 	
 	let id: String?
 	let name: String
+	let author: String?
 	let creationDate: Date?
 	let lastMessage: Message?
 	
@@ -20,8 +21,22 @@ struct Chat {
 		name = aName
 		
 		id = nil
+		author = nil
 		creationDate = nil
 		lastMessage = nil
+	}
+	
+	func setLast(message: Message) -> Chat {
+		return Chat(original: self, lastMessage: message)
+	}
+	
+	private init(original: Chat, lastMessage theLastMessage: Message) {
+		
+		name = original.name
+		id = original.id
+		author = original.author
+		creationDate = original.creationDate
+		lastMessage = theLastMessage
 	}
 }
 

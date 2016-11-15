@@ -11,19 +11,19 @@ import UIKit
 class MessagesViewController: UIViewController {
 	
 	static let storyboardIdentifier = String(describing: MessagesViewController.self)
-	
-	var chat: Chat! {
-		
-		willSet(newChat) {
-			guard let _ = newChat else {exit(1)}//once setup, the chat can not be reset - only changed to another one
-		}
-		
-		didSet {
 
-			messages = PaginatedCollection<Message>(parentDomain: Chat.domain, id: chat.id, pagination: Pagination(limit: MessagesViewController.messagesHunkSize))
-			load(incremental: false)
-		}
+	func apply(chat aChat: Chat) {
+		
+		chat = aChat
+
+		/*
+		Request messages
+		*/
+		messages = PaginatedCollection<Message>(parentDomain: Chat.domain, id: chat.id, pagination: Pagination(limit: MessagesViewController.messagesHunkSize))
+		load(incremental: false)
 	}
+	
+	private(set) var chat: Chat!
 	
 	private var messages: PaginatedCollection<Message>!
 
@@ -44,6 +44,8 @@ class MessagesViewController: UIViewController {
 		
 		present(createMessageVC, animated: true, completion: nil)
 	}
+	
+	var messageAdded: ((Chat) -> Void)!
 	
 	//MARK:- Requests
 	
@@ -68,6 +70,7 @@ class MessagesViewController: UIViewController {
 				strongSelf.messages = newMessages
 				
 				strongSelf.updateTableView(addingMessages: [message])
+				strongSelf.updateChatAndNotify(addedMessage: message)
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -75,6 +78,11 @@ class MessagesViewController: UIViewController {
 		}
 		
 		postingTasks.append(task)
+	}
+	
+	private func updateChatAndNotify(addedMessage message: Message) {
+		chat = chat.setLast(message: message)
+		messageAdded(chat)
 	}
 	
 	private func load(incremental: Bool) {

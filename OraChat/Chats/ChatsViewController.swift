@@ -26,7 +26,17 @@ class ChatsViewController: UIViewController {
 			guard let strongSelf = self else {return}
 			
 			let messagesVC = strongSelf.storyboard!.instantiateViewController(withIdentifier: MessagesViewController.storyboardIdentifier) as! MessagesViewController
-			messagesVC.chat = chat
+			
+			messagesVC.apply(chat: chat)
+
+			messagesVC.messageAdded = {
+				[weak self]
+				updatedChat in
+				guard let strongSelf = self else {return}
+
+				strongSelf.chats = strongSelf.chats.replace(item: updatedChat)
+				strongSelf.updateTableView(addingChats: nil)
+			}
 
 			strongSelf.show(messagesVC, sender: nil)
 		}
@@ -47,7 +57,7 @@ class ChatsViewController: UIViewController {
 			strongSelf.query = aQuery
 			strongSelf.load(incremental: false)
 		}
-		
+
 		updateView()
 	}
 	
@@ -107,6 +117,10 @@ class ChatsViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
+		if let indexPath = tableView.indexPathForSelectedRow {
+			tableView.deselectRow(at: indexPath, animated: true)
+		}
+		
 		if chats.items.count == 0 {
 			load(incremental: false)
 		}
