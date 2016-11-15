@@ -24,7 +24,6 @@ extension Message: CollectionRequestable {
 		}
 	}
 	*/
-	static var dateParseCnt = 0//Remove this when the backend side dates-related flaw is fixed (see the parsing initializer below)
 	
 	init?(json: JSONDictionary) {
 		
@@ -36,7 +35,7 @@ extension Message: CollectionRequestable {
 		
 		guard let anUser = json["user"] as? JSONDictionary, let anUserName = anUser["name"] as? String else {return nil}
 		
-		guard let dateString = json["created"] as? String, let aCreationDate = DateFormatter.RFC3339.date(from: dateString) else {return nil}
+		guard let dateString = json["created"] as? String, let aCreationDate = DateFormatter.RFC3339.date(from: dateString) else {return nil}//Backend always gives the same date here - that's why this is not used now
 		
 //		id = anId - Backend always gives the same ID here - uncomment this line when this is fixed on the backend side
 		id = UUID().uuidString
@@ -44,8 +43,7 @@ extension Message: CollectionRequestable {
 		text = aText
 		author = anUserName
 		
-		creationDate = type(of:self).dateParseCnt < 2 ? aCreationDate : Date()// - Backend always gives the same date here. Get rid of this workaround when the backend is fixed
-		type(of:self).dateParseCnt += 1
+		creationDate = /*aCreationDate*/Date()// - Backend always gives the same date here. Get rid of this workaround when the backend is fixed
 		
 		userName = name
 	}

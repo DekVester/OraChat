@@ -72,7 +72,7 @@ class MessagesViewController: UIViewController {
 				strongSelf.messages = newMessages
 				
 				strongSelf.updateTableView(addingMessages: [message])
-				strongSelf.updateChatAndNotify(addedMessage: message)
+				strongSelf.updateChatLastMessageAndNotify()
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -80,11 +80,6 @@ class MessagesViewController: UIViewController {
 		}
 		
 		postingTasks.append(task)
-	}
-	
-	private func updateChatAndNotify(addedMessage message: Message) {
-		chat = chat.setLast(message: message)
-		messageAdded(chat)
 	}
 	
 	private func load(incremental: Bool) {
@@ -118,11 +113,36 @@ class MessagesViewController: UIViewController {
 				
 				strongSelf.messages = newMessages
 				strongSelf.updateTableView(addingMessages: addingMessages?.items)
+				
+				strongSelf.updateChatLastMessageAndNotify()
 			}
 			else {
 				strongSelf.handle(error: error!)
 			}
 		}
+	}
+	
+	private func updateChatLastMessageAndNotify() {
+		
+		/*
+		Sync chat last message with the collection one
+		*/
+		if let message = latestMessage, chat.lastMessage != message {
+			chat = chat.setLast(message: message)
+			messageAdded(chat)
+		}
+	}
+	
+	private var latestMessage: Message? {
+		
+		return messages.items.sorted {
+			(message0: Message, message1: Message) in
+			guard let date0 = message0.creationDate, let date1 = message1.creationDate else {
+				assertionFailure("Invalid messages")
+				exit(1)
+			}
+			return date0 < date1
+		}.last
 	}
 	
 	private func cancelLoadingRequest() {
