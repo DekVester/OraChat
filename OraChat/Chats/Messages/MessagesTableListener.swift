@@ -20,6 +20,7 @@ class MessagesTableListener: TableListener <Message, MessageTableCell> {
 			
 			cell.contentLabel.text = message.text
 			cell.footerLabel.text = message.userDateText
+			cell.bubbleRight = indexPath.row % 2 != 0//in future, apply something more peculiar here...
 		}
 	}
 	
