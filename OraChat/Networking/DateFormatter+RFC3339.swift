@@ -1,5 +1,5 @@
 //
-//  RFC3339DateFormatter.swift
+//  DateFormatter+RFC3339.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/13/16.

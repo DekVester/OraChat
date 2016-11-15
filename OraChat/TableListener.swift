@@ -11,13 +11,16 @@ import UIKit
 
 class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-	typealias Configure = (Cell, Item, Int) -> Void
-	typealias Select = (Item, Int) -> Void
+	typealias Configure = (Cell, Item, IndexPath) -> Void
+	typealias ConfigureSection = (ItemSection, Int) -> String//only section title is supported for now
+	typealias Select = (Item, IndexPath) -> Void
 	typealias Refresh = ()->Void
 	
-	init(items someItems: [Item], preparingTable aTable: UITableView) {
+	typealias ItemSection = [Item]
+	
+	init(itemSections someItemSections: [ItemSection], preparingTable aTable: UITableView) {
 		
-		items = someItems
+		itemSections = someItemSections
 		
 		super.init()
 		
@@ -29,15 +32,16 @@ class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSourc
 		table = aTable
 	}
 	
-	var items: [Item] {
+	var itemSections: [ItemSection] {
 		didSet {
 			table?.refreshControl?.endRefreshing()
 		}
 	}
 	
 	var configure: Configure!
-	var select: Select?
+	var configureSection: ConfigureSection?
 	
+	var select: Select?
 	var refresh: Refresh?
 	
 	var refreshEnabled = false {
@@ -87,26 +91,32 @@ class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSourc
 
 	//MARK:- UITableViewDataSource
 	
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return itemSections.count
+	}
+	
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return configureSection?(itemSections[section], section)
+	}
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return items.count
+		return itemSections[section].count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! Cell
-		let row = indexPath.row
-		let item = items[row]
-		configure(cell, item, row)
+		let item = itemSections[indexPath.section][indexPath.row]
+		configure(cell, item, indexPath)
 		return cell
 	}
 	
 	//MARK:- UITableViewDelegate
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
-		let row = indexPath.row
-		let item = items[row]
-		select?(item, row)
+
+		let item = itemSections[indexPath.section][indexPath.row]
+		select?(item, indexPath)
 	}
 	
 	weak var table: UITableView?

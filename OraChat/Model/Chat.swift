@@ -10,7 +10,7 @@ import Foundation
 
 struct Chat {
 	
-	let id: Int?
+	let id: String?
 	let name: String
 	let creationDate: Date?
 	let lastMessage: Message?
@@ -22,5 +22,12 @@ struct Chat {
 		id = nil
 		creationDate = nil
 		lastMessage = nil
+	}
+}
+
+extension Chat: Equatable {
+	
+	public static func ==(lhs: Chat, rhs: Chat) -> Bool {
+		return lhs.id == rhs.id
 	}
 }

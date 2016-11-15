@@ -39,6 +39,9 @@ extension Pagination: Comparable {
 	public static func <(lhs: Pagination, rhs: Pagination) -> Bool{
 		return lhs.page < rhs.page
 	}
+}
+
+extension Pagination: Equatable {
 	
 	public static func ==(lhs: Pagination, rhs: Pagination) -> Bool {
 		return lhs.page == rhs.page

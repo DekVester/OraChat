@@ -21,7 +21,7 @@ class ChatsViewController: UIViewController {
 		tableListener.select = {
 
 			[weak self]
-			(chat: Chat, index: Int) in
+			(chat: Chat, indexPath: IndexPath) in
 
 			guard let strongSelf = self else {return}
 			
@@ -48,28 +48,37 @@ class ChatsViewController: UIViewController {
 			strongSelf.load(incremental: false)
 		}
 		
-		updateView(prependingChats: nil)
+		updateView()
 	}
 	
-	private func updateView(prependingChats: PaginatedCollection<Chat>?) {
+	private func updateView() {
 		
 		guard isViewLoaded else {return}
 		
-		updateTableView(prependingChats: prependingChats)
+		updateTableView(addingChats: nil)
 		updateWaitView()
 	}
 	
-	private func updateTableView(prependingChats: PaginatedCollection<Chat>?) {
+	private func updateTableView(addingChats: [Chat]?) {
 		
 		guard isViewLoaded else {return}
 		
-		if let prependingChats = prependingChats {
+		if let addingChats = addingChats {
 			
 			/*
 			Incremental
 			*/
-			let indexPaths = tableListener.prepend(chats: prependingChats.items)
-			tableView.insertRows(at: indexPaths, with: .top)
+			var addedSections = IndexSet()
+			let addedRows = tableListener.add(chats: addingChats, addingSections: &addedSections)
+			
+			tableView.beginUpdates()
+			
+			if addedSections.count > 0 {
+				tableView.insertSections(addedSections, with: .automatic)
+			}
+			tableView.insertRows(at: addedRows, with: .automatic)
+			
+			tableView.endUpdates()
 		}
 		else {
 			
@@ -80,7 +89,7 @@ class ChatsViewController: UIViewController {
 			tableView.reloadData()
 		}
 		
-		tableListener.refreshEnabled = chats.pagination.nextPageAvailable
+		tableListener.refreshEnabled = chats.pagination.nextPageAvailable || chats.items.count == 0
 	}
 	
 	private func updateWaitView() {
@@ -144,10 +153,10 @@ class ChatsViewController: UIViewController {
 			
 			if let chat = newChat {
 				
-				let newChats = strongSelf.chats.append(item: chat)
+				let newChats = strongSelf.chats.add(item: chat)
 				strongSelf.chats = newChats
 				
-				strongSelf.updateTableView(prependingChats: nil)
+				strongSelf.updateTableView(addingChats: [chat])
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -178,15 +187,15 @@ class ChatsViewController: UIViewController {
 			
 			if var newChats = newChats {
 
-				var prependingChats: PaginatedCollection<Chat>?
+				var addingChats: PaginatedCollection<Chat>?
 
 				if incremental {
-					prependingChats = newChats
-					newChats = strongSelf.chats.prepend(collection: newChats)
+					addingChats = newChats
+					newChats = strongSelf.chats.add(collection: newChats)
 				}
 				
 				strongSelf.chats = newChats
-				strongSelf.updateTableView(prependingChats: prependingChats)
+				strongSelf.updateTableView(addingChats: addingChats?.items)
 			}
 			else {
 				strongSelf.handle(error: error!)

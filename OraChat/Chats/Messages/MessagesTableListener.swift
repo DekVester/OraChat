@@ -12,11 +12,11 @@ class MessagesTableListener: TableListener <Message, MessageTableCell> {
 
 	init(preparingTable table: UITableView) {
 		
-		super.init(items: [], preparingTable: table)
+		super.init(itemSections: [[]], preparingTable: table)
 		
 		configure = {
 			
-			(cell: MessageTableCell, message: Message, index: Int) in
+			(cell: MessageTableCell, message: Message, indexPath: IndexPath) in
 			cell.textLabel?.text = message.text
 		}
 	}
@@ -24,23 +24,39 @@ class MessagesTableListener: TableListener <Message, MessageTableCell> {
 	var messages: [Message] {
 		
 		get {
-			return items
+			return itemSections[0]
 		}
 		set(newMessages) {
-			items = newMessages
+			itemSections[0] = sort(messages: newMessages)
 		}
 	}
 	
-	func prepend(messages prependingMessages: [Message]) -> [IndexPath] {
+	func add(messages newMessages: [Message]) -> [IndexPath] {
+
+		let messages = sort(messages: itemSections[0] + newMessages)
+		itemSections[0] = messages
 		
-		items.insert(contentsOf: prependingMessages, at: 0)
-		
-		let range: CountableRange = 0..<prependingMessages.count
-		
-		let indexPaths = range.map {
-			IndexPath(row: $0, section: 0)
+		let indexPaths: [IndexPath] = newMessages.map {
+			message in
+			let row = messages.index(of: message)!
+			return IndexPath(row: row, section: 0)
 		}
 		
 		return indexPaths
+	}
+	
+	private func sort(messages: [Message]) -> [Message] {
+		
+		return messages.sorted {
+			messagesPair in
+			
+			guard let date0 = messagesPair.0.creationDate, let date1 = messagesPair.1.creationDate else {
+				
+				assertionFailure("Can not use messages without creation date inside the table")
+				exit(1)
+			}
+			
+			return date0 < date1
+		}
 	}
 }

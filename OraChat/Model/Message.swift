@@ -10,7 +10,15 @@ import UIKit
 
 struct Message {
 
+	let id: String?
 	let text: String
 	let creationDate: Date?
 	let userName: String?
+}
+
+extension Message: Equatable {
+	
+	public static func ==(lhs: Message, rhs: Message) -> Bool {
+		return lhs.id == rhs.id
+	}
 }

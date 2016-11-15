@@ -16,12 +16,12 @@ class TextFieldTableListener<Representable: TextFieldTableRepresentable>: TableL
 	init(item anItem: Representable, preparingTable table: UITableView, change: @escaping RepresentableItemChange) {
 
 		let rows = anItem.tableRepresentation()
-		super.init(items: rows, preparingTable: table)
+		super.init(itemSections: [rows], preparingTable: table)
 
 		configure = {
 
 			[weak self]
-			(cell: TextFieldTableCell, row: TextFieldTableRow, index: Int) in
+			(cell: TextFieldTableCell, row: TextFieldTableRow, indexPath: IndexPath) in
 			guard let _ = self else {return}
 			
 			cell.label.text = row.title
@@ -35,9 +35,9 @@ class TextFieldTableListener<Representable: TextFieldTableRepresentable>: TableL
 				guard let strongSelf = self else {return}
 				
 				let newRow = row.replaceValue(newValue: newValue)
-				strongSelf.items[index] = newRow
+				strongSelf.itemSections[0][indexPath.row] = newRow
 
-				let newRepresentable = Representable(tableRepresentation: strongSelf.items)
+				let newRepresentable = Representable(tableRepresentation: strongSelf.itemSections[0])
 				change(newRepresentable)
 			}
 		}
@@ -46,10 +46,10 @@ class TextFieldTableListener<Representable: TextFieldTableRepresentable>: TableL
 	var item: Representable {
 		
 		get {
-			return Representable(tableRepresentation: items)
+			return Representable(tableRepresentation: itemSections[0])
 		}
 		set(newItem) {
-			items = newItem.tableRepresentation()
+			itemSections[0] = newItem.tableRepresentation()
 		}
 	}
 }

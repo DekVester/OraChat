@@ -20,6 +20,7 @@
 		3215F5D61DD65E4700E05BDA /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5D21DD65E4700E05BDA /* MessagesViewController.swift */; };
 		3215F5D71DD65E4700E05BDA /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */; };
 		3215F5D81DD65E4700E05BDA /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */; };
+		323479881DDB611E001BA2CB /* DateFormatter+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323479871DDB611E001BA2CB /* DateFormatter+View.swift */; };
 		32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D5C1DD50D24001DC6AA /* AppDelegate.swift */; };
 		32361D641DD50D25001DC6AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32361D621DD50D25001DC6AA /* Main.storyboard */; };
 		32361D661DD50D25001DC6AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32361D651DD50D25001DC6AA /* Assets.xcassets */; };
@@ -39,7 +40,7 @@
 		32D024601DD8A9B50044871C /* Chat+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0245F1DD8A9B50044871C /* Chat+Networking.swift */; };
 		32D024631DD8AA460044871C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024611DD8AA460044871C /* Chat.swift */; };
 		32D024641DD8AA460044871C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024621DD8AA460044871C /* Message.swift */; };
-		32D024661DD8B3900044871C /* RFC3339DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */; };
+		32D024661DD8B3900044871C /* DateFormatter+RFC3339.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024651DD8B3900044871C /* DateFormatter+RFC3339.swift */; };
 		32D024681DD8B6A30044871C /* Message+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024671DD8B6A30044871C /* Message+Networking.swift */; };
 		32D0246C1DD8C94B0044871C /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0246B1DD8C94B0044871C /* Pagination.swift */; };
 		32D0246E1DD8C9750044871C /* PaginatedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0246D1DD8C9750044871C /* PaginatedCollection.swift */; };
@@ -77,6 +78,7 @@
 		3215F5D21DD65E4700E05BDA /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
+		323479871DDB611E001BA2CB /* DateFormatter+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+View.swift"; sourceTree = "<group>"; };
 		32361D591DD50D24001DC6AA /* OraChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OraChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32361D5C1DD50D24001DC6AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32361D631DD50D25001DC6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,7 +102,7 @@
 		32D0245F1DD8A9B50044871C /* Chat+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chat+Networking.swift"; sourceTree = "<group>"; };
 		32D024611DD8AA460044871C /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		32D024621DD8AA460044871C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RFC3339DateFormatter.swift; sourceTree = "<group>"; };
+		32D024651DD8B3900044871C /* DateFormatter+RFC3339.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormatter+RFC3339.swift"; sourceTree = "<group>"; };
 		32D024671DD8B6A30044871C /* Message+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+Networking.swift"; sourceTree = "<group>"; };
 		32D0246B1DD8C94B0044871C /* Pagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		32D0246D1DD8C9750044871C /* PaginatedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedCollection.swift; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 				32115E2E1DD9B6DD0082C77E /* Pagination+Json.swift */,
 				325078A11DDA440C0002805C /* CollectionRequestable.swift */,
 				324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */,
-				32D024651DD8B3900044871C /* RFC3339DateFormatter.swift */,
+				32D024651DD8B3900044871C /* DateFormatter+RFC3339.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -172,6 +174,14 @@
 				3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */,
 			);
 			path = Messages;
+			sourceTree = "<group>";
+		};
+		323479861DDB60F7001BA2CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				323479871DDB611E001BA2CB /* DateFormatter+View.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		32361D501DD50D24001DC6AA = {
@@ -204,6 +214,7 @@
 				32361D861DD51360001DC6AA /* TableListener.swift */,
 				32FFD0741DD646100056A2CD /* Model */,
 				320EEFAE1DD754F500AB7BA2 /* Networking */,
+				323479861DDB60F7001BA2CB /* View */,
 				32361D651DD50D25001DC6AA /* Assets.xcassets */,
 				32361D671DD50D25001DC6AA /* LaunchScreen.storyboard */,
 				32361D6A1DD50D25001DC6AA /* Info.plist */,
@@ -388,6 +399,7 @@
 				32D024641DD8AA460044871C /* Message.swift in Sources */,
 				320EEFB21DD7551400AB7BA2 /* AccountInfo+Networking.swift in Sources */,
 				3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */,
+				323479881DDB611E001BA2CB /* DateFormatter+View.swift in Sources */,
 				32C984541DD5FF000062FA44 /* TextFieldTableListener.swift in Sources */,
 				320EEFB01DD754F500AB7BA2 /* Webservice.swift in Sources */,
 				32FFD0821DD646DB0056A2CD /* AuthenticationInfo+View.swift in Sources */,
@@ -402,7 +414,7 @@
 				32361D5D1DD50D24001DC6AA /* AppDelegate.swift in Sources */,
 				3215F5D61DD65E4700E05BDA /* MessagesViewController.swift in Sources */,
 				32C9845A1DD617EF0062FA44 /* TextFieldTableRepresentation.swift in Sources */,
-				32D024661DD8B3900044871C /* RFC3339DateFormatter.swift in Sources */,
+				32D024661DD8B3900044871C /* DateFormatter+RFC3339.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

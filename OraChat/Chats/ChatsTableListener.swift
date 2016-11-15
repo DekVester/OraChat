@@ -12,14 +12,24 @@ class ChatsTableListener: TableListener<Chat, ChatTableCell>, UISearchBarDelegat
 	
 	init(preparingTable table: UITableView) {
 
-		super.init(items: [], preparingTable: table)
+		super.init(itemSections: [[]], preparingTable: table)
 		
 		guard let searchBar = searchBar else {exit(1)}
 		searchBar.delegate = self
 
-		configure = {
+		configureSection = {
+			(section: ItemSection, index: Int) in
 			
-			(cell: ChatTableCell, chat: Chat, index: Int) in
+			guard let date = section.first?.creationDate else {
+				assertionFailure("Invalid chat inside the table")
+				exit(1)
+			}
+			
+			return DateFormatter.visualization.string(from: date)
+		}
+
+		configure = {
+			(cell: ChatTableCell, chat: Chat, indexPath: IndexPath) in
 			cell.textLabel?.text = chat.name
 		}
 	}
@@ -27,25 +37,87 @@ class ChatsTableListener: TableListener<Chat, ChatTableCell>, UISearchBarDelegat
 	var chats: [Chat] {
 		
 		get {
-			return items
+			return itemSections.flatMap {return $0}
 		}
 		set(newChats) {
-			items = newChats
+			itemSections = sort(chats: newChats)
 		}
 	}
 	
-	func prepend(chats prependingChats: [Chat]) -> [IndexPath] {
+	func add(chats addingChats: [Chat], addingSections: inout IndexSet) -> [IndexPath] {
 
-		items.insert(contentsOf: prependingChats, at: 0)
+		chats += addingChats
 		
-		let range: CountableRange = 0..<prependingChats.count
-		
-		let indexPaths = range.map {
-			IndexPath(row: $0, section: 0)
+		/*
+		Calculate indices paths of the new chats that have just been added
+		*/
+		let indexPaths: [IndexPath] = addingChats.map {
+			chat in
+			
+			let sectionIndex = itemSections.index {
+				(section: ItemSection) in
+				return section.contains {$0 == chat}
+			}!
+			
+			let chatIndex = itemSections[sectionIndex].index(of: chat)!
+			
+			let indexPath = IndexPath(row: chatIndex, section: sectionIndex)
+			return indexPath
 		}
 		
+		/*
+		Calculate indices of inserted sections
+		*/
+		let newSections: [Int] = indexPaths.flatMap {
+
+			(path: IndexPath) in
+			
+			let sectionIndex = path.section
+			let newSection = itemSections[sectionIndex].count == 1
+			return newSection ? sectionIndex : nil
+		}
+
+		addingSections = IndexSet(newSections)
 		return indexPaths
 	}
+	
+	private func sort(chats: [Chat]) -> [ItemSection] {
+
+		let distinctSortedDays = Set(chats.map {
+			return creationDay(chat: $0)
+		}).sorted()
+
+		let sections: [ItemSection] = distinctSortedDays.map {
+			day in
+			let chatsForDay = chats.filter {creationDay(chat: $0) == day}
+				.sorted {return compareChats($0, $1)}
+			return chatsForDay
+		}
+		
+		return sections
+	}
+	
+	private func creationDay(chat: Chat) -> Date {
+
+		guard let date = chat.creationDate else {
+			assertionFailure("Can not use chats without creation date inside the table")
+			exit(1)
+		}
+		
+		return currentCalendar.startOfDay(for: date)
+	}
+	
+	private func compareChats(_ lhs: Chat, _ rhs: Chat) -> Bool {
+		
+		guard let lhsDate = lhs.creationDate, let rhsDate = rhs.creationDate else {
+			assertionFailure("Can not use chats without creation date inside the table")
+			exit(1)
+		}
+		
+		return lhsDate < rhsDate
+	}
+	
+	private let currentCalendar = Calendar.current
 	
 	//MARK:- Search Bar
 

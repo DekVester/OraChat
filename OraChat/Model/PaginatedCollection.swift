@@ -12,12 +12,12 @@ import Foundation
 struct PaginatedCollection<Item> {
 
 	let parentDomain: String?
-	let id: Int?
+	let id: String?
 	
 	let items: [Item]
 	let pagination: Pagination
 	
-	init(parentDomain domain: String?, id anId: Int?, pagination aPagination: Pagination) {
+	init(parentDomain domain: String?, id anId: String?, pagination aPagination: Pagination) {
 
 		parentDomain = domain
 		id = anId
@@ -25,16 +25,12 @@ struct PaginatedCollection<Item> {
 		pagination = aPagination
 	}
 	
-	func append(item: Item) -> PaginatedCollection<Item> {
+	func add(item: Item) -> PaginatedCollection<Item> {
 		return PaginatedCollection<Item>(original: self, appendingItem: item)
 	}
-	
-	func append(collection: PaginatedCollection<Item>) -> PaginatedCollection<Item> {
+
+	func add(collection: PaginatedCollection<Item>) -> PaginatedCollection<Item> {
 		return PaginatedCollection<Item>(left: self, right: collection)
-	}
-	
-	func prepend(collection: PaginatedCollection<Item>) -> PaginatedCollection<Item> {
-		return PaginatedCollection<Item>(left: collection, right: self)
 	}
 	
 	private init(original: PaginatedCollection<Item>, appendingItem item: Item) {

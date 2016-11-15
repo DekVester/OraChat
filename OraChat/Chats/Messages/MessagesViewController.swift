@@ -53,15 +53,15 @@ class MessagesViewController: UITableViewController {
 			
 			if var newMessages = newMessages {
 				
-				var prependingMessages: PaginatedCollection<Message>?
+				var addingMessages: PaginatedCollection<Message>?
 				
 				if incremental {
-					prependingMessages = newMessages
-					newMessages = strongSelf.messages.prepend(collection: newMessages)
+					addingMessages = newMessages
+					newMessages = strongSelf.messages.add(collection: newMessages)
 				}
 				
 				strongSelf.messages = newMessages
-				strongSelf.updateView(prependingMessages: prependingMessages)
+				strongSelf.updateView(addingMessages: addingMessages?.items)
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -93,20 +93,20 @@ class MessagesViewController: UITableViewController {
 			strongSelf.performRequest(incremental: true)
 		}
 		
-		updateView(prependingMessages: nil)
+		updateView(addingMessages: nil)
 	}
 	
-	private func updateView(prependingMessages: PaginatedCollection<Message>?) {
+	private func updateView(addingMessages: [Message]?) {
 		
 		guard isViewLoaded else {return}
 
-		if let prependingMessages = prependingMessages {
+		if let addingMessages = addingMessages {
 			
 			/*
 			Incremental
 			*/
-			let indexPaths = tableListener.prepend(messages: prependingMessages.items)
-			tableView.insertRows(at: indexPaths, with: .top)
+			let indexPaths = tableListener.add(messages: addingMessages)
+			tableView.insertRows(at: indexPaths, with: .automatic)
 		}
 		else {
 			
@@ -117,7 +117,7 @@ class MessagesViewController: UITableViewController {
 			tableView.reloadData()
 		}
 		
-		tableListener.refreshEnabled = messages.pagination.nextPageAvailable
+		tableListener.refreshEnabled = messages.pagination.nextPageAvailable || messages.items.count == 0
 	}
 	
 	private var tableListener: MessagesTableListener!

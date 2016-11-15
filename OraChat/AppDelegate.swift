@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		return true
 	}
 	
-//	func applicationDidBecomeActive(_ application: UIApplication) {
-//		
-//		if webservice.authorizationToken == nil {
-//			window?.rootViewController?.showAuthentication()
-//		}
-//	}
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		
+		if webservice.authorizationToken == nil {
+			window?.rootViewController?.showAuthentication()
+		}
+	}
 }
