@@ -16,6 +16,8 @@ class MessagesViewController: UIViewController {
 		
 		chat = aChat
 
+		title = chat.name
+		
 		/*
 		Request messages
 		*/
