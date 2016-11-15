@@ -14,6 +14,15 @@ struct Message {
 	let text: String
 	let creationDate: Date?
 	let userName: String?
+	
+	init(text aText: String) {
+		
+		text = aText
+		
+		id = nil
+		creationDate = nil
+		userName = nil
+	}
 }
 
 extension Message: Equatable {

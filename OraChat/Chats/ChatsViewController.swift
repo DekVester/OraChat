@@ -130,7 +130,6 @@ class ChatsViewController: UIViewController {
 			strongSelf.create(chat: creatingChat)
 		}
 		
-//		show(createChatVC, sender: nil)
 		present(createChatVC, animated: true, completion: nil)
 	}
 	
@@ -216,4 +215,15 @@ class ChatsViewController: UIViewController {
 	private var query = ""
 	
 	static private let chatsHunkSize = 10
+	
+	deinit {
+		
+		/*
+		Cancel all network calls
+		*/
+		postingTasks.forEach {
+			$0.cancel()
+		}
+		loadingTask?.cancel()
+	}
 }

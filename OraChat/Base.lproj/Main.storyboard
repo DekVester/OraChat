@@ -106,28 +106,63 @@
             <point key="canvasLocation" x="1705" y="-75"/>
         </scene>
         <!--Messages-->
-        <scene sceneID="JvT-xC-kAS">
+        <scene sceneID="A7d-p5-VH5">
             <objects>
-                <tableViewController storyboardIdentifier="MessagesViewController" id="xX7-GT-lH2" userLabel="Messages" customClass="MessagesViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fmJ-3v-Wla">
+                <viewController storyboardIdentifier="MessagesViewController" id="EhZ-cM-F28" userLabel="Messages" customClass="MessagesViewController" customModule="OraChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U66-jb-McH"/>
+                        <viewControllerLayoutGuide type="bottom" id="pR8-fa-gxO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RQH-aM-3Fq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5wO-Xk-D5E">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="qZg-P1-GVy">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="IWg-Mu-hde">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqX-h4-h7o" userLabel="Add">
+                                <rect key="frame" x="308" y="611" width="22" height="22"/>
+                                <connections>
+                                    <action selector="onAdd" destination="EhZ-cM-F28" eventType="touchUpInside" id="1Pt-vd-Paq"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HgB-lM-YPO">
+                                <rect key="frame" x="177" y="373.5" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="6Fh-6T-ULQ">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <connections>
-                            <outlet property="dataSource" destination="xX7-GT-lH2" id="1gl-j1-j1G"/>
-                            <outlet property="delegate" destination="xX7-GT-lH2" id="lKW-ZO-d4f"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="A Chat" id="9jM-Nu-iid"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ih5-6N-mvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5wO-Xk-D5E" secondAttribute="trailing" id="3On-CT-mzS"/>
+                            <constraint firstItem="5wO-Xk-D5E" firstAttribute="leading" secondItem="RQH-aM-3Fq" secondAttribute="leading" id="P4u-Sd-HuC"/>
+                            <constraint firstItem="HgB-lM-YPO" firstAttribute="centerX" secondItem="RQH-aM-3Fq" secondAttribute="centerX" id="PUG-yk-Owv"/>
+                            <constraint firstItem="pR8-fa-gxO" firstAttribute="top" secondItem="5wO-Xk-D5E" secondAttribute="bottom" id="bhV-tg-eAT"/>
+                            <constraint firstItem="HgB-lM-YPO" firstAttribute="centerY" secondItem="RQH-aM-3Fq" secondAttribute="centerY" constant="50" id="eb2-F8-JYN"/>
+                            <constraint firstItem="5wO-Xk-D5E" firstAttribute="top" secondItem="RQH-aM-3Fq" secondAttribute="top" id="gGR-Kx-LwH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bqX-h4-h7o" secondAttribute="trailing" constant="29" id="goC-5f-ecS"/>
+                            <constraint firstItem="pR8-fa-gxO" firstAttribute="top" secondItem="bqX-h4-h7o" secondAttribute="bottom" constant="34" id="kDN-sx-82O"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="A Chat" id="aJn-fY-lF5"/>
+                    <connections>
+                        <outlet property="tableView" destination="5wO-Xk-D5E" id="0gR-Dw-5cV"/>
+                        <outlet property="waitView" destination="HgB-lM-YPO" id="Iyv-LU-G52"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QO0-bu-Swm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2518" y="-75"/>
+            <point key="canvasLocation" x="2570" y="-74"/>
         </scene>
         <!--Account Navigation-->
         <scene sceneID="rIJ-Sp-ZeB">

@@ -32,6 +32,7 @@
 		32AFDEBD1DDB1B3600C5E912 /* CreateChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AFDEBC1DDB1B3600C5E912 /* CreateChatViewController.swift */; };
 		32B7462C1DDB8AC6002D7C88 /* AccountInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7462A1DDB8AC6002D7C88 /* AccountInfo+View.swift */; };
 		32B7462D1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7462B1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift */; };
+		32B7462F1DDB8F26002D7C88 /* CreateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7462E1DDB8F26002D7C88 /* CreateMessageViewController.swift */; };
 		32C9842F1DD5CE250062FA44 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C9842D1DD5CE250062FA44 /* Authorization.storyboard */; };
 		32C984541DD5FF000062FA44 /* TextFieldTableListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9844F1DD5FF000062FA44 /* TextFieldTableListener.swift */; };
 		32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */; };
@@ -94,6 +95,7 @@
 		32AFDEBC1DDB1B3600C5E912 /* CreateChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatViewController.swift; sourceTree = "<group>"; };
 		32B7462A1DDB8AC6002D7C88 /* AccountInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+View.swift"; sourceTree = "<group>"; };
 		32B7462B1DDB8AC6002D7C88 /* AuthenticationInfo+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationInfo+View.swift"; sourceTree = "<group>"; };
+		32B7462E1DDB8F26002D7C88 /* CreateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMessageViewController.swift; sourceTree = "<group>"; };
 		32C9842E1DD5CE250062FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authorization.storyboard; sourceTree = "<group>"; };
 		32C9844F1DD5FF000062FA44 /* TextFieldTableListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableListener.swift; sourceTree = "<group>"; };
 		32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				3215F5D11DD65E4700E05BDA /* MessagesTableListener.swift */,
 				3215F5D31DD65E4700E05BDA /* MessageTableCell.swift */,
 				3215F5D41DD65E4700E05BDA /* MessageTableCell.xib */,
+				32B7462E1DDB8F26002D7C88 /* CreateMessageViewController.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */,
 				32D024681DD8B6A30044871C /* Message+Networking.swift in Sources */,
 				32FFD0861DD647050056A2CD /* RegistrationViewController.swift in Sources */,
+				32B7462F1DDB8F26002D7C88 /* CreateMessageViewController.swift in Sources */,
 				32C984581DD5FF000062FA44 /* TextFieldTableRow.swift in Sources */,
 				3215F5C11DD6545E00E05BDA /* ChatTableCell.swift in Sources */,
 				32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */,

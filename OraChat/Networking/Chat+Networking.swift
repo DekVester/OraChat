@@ -82,8 +82,8 @@ extension Chat: CollectionRequestable {
 		id = UUID().uuidString
 		
 		name = aName
-		creationDate = type(of:self).dateParseCnt < 2 ? aCreationDate : Date()// - Backend always gives the same date here. Get rid of this workaround when the backend is fixed
 		
+		creationDate = type(of:self).dateParseCnt < 2 ? aCreationDate : Date()// - Backend always gives the same date here. Get rid of this workaround when the backend is fixed
 		type(of:self).dateParseCnt += 1
 		
 		if let lastMessageData = json["last_message"] as? JSONDictionary {

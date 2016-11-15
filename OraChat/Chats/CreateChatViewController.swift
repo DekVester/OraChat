@@ -8,7 +8,7 @@
 
 import UIKit
 
-//TO BE IMPLEMENTED:
+//Probably, to be implemented, when the corresponding UI reqs are introduced
 //class CreateChatViewController: UIViewController {
 //}
 
