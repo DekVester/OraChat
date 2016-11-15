@@ -16,12 +16,12 @@ class AuthenticationViewController: UITableViewController {
 	
 		super.viewDidLoad()
 
-		weak var weakSelf = self
-		tableListener = TextFieldTableListener(item: info, preparingTable: tableView!) {
-			
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
+
+			[weak self]
 			(newInfo: AuthenticationInfo) in
 			
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			strongSelf.info = newInfo
 		}
 	}
@@ -34,13 +34,13 @@ class AuthenticationViewController: UITableViewController {
 private extension AuthenticationViewController {
 	
 	@IBAction func onLogin() {
-		
-		weak var weakSelf = self
+
 		webservice.load(info.login) {
 			
+			[weak self]
 			(token: AuthorizationToken?, error: Error?) in
 			
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			
 			if let token = token {
 				

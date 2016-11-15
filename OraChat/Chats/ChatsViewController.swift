@@ -8,20 +8,22 @@
 
 import UIKit
 
-class ChatsViewController: UITableViewController {
+class ChatsViewController: UIViewController {
+	
+	//MARK:- View
 	
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
 
-		tableListener = ChatsTableListener(preparingTable: tableView!)
-		
-		weak var weakSelf = self
+		tableListener = ChatsTableListener(preparingTable: tableView)
+
 		tableListener.select = {
-			
+
+			[weak self]
 			(chat: Chat, index: Int) in
 
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			
 			let messagesVC = strongSelf.storyboard!.instantiateViewController(withIdentifier: MessagesViewController.storyboardIdentifier) as! MessagesViewController
 			messagesVC.chat = chat
@@ -31,66 +33,22 @@ class ChatsViewController: UITableViewController {
 
 		tableListener.refresh = {
 			
-			guard let strongSelf = weakSelf else {return}
+			[weak self] in
+			guard let strongSelf = self else {return}
 			strongSelf.performRequest(incremental: true)
 		}
 		
 		tableListener.search = {
 			
+			[weak self]
 			aQuery in
-			
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			
 			strongSelf.query = aQuery
 			strongSelf.performRequest(incremental: false)
 		}
 		
 		updateView(prependingChats: nil)
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-
-		if chats.items.count == 0 {
-			performRequest(incremental: false)
-		}
-	}
-	
-	private func performRequest(incremental: Bool) {
-		
-		/*
-		(Re-)starts chats request, either incremental or initial
-		*/
-		if let latestTask = latestTask {
-			latestTask.cancel()
-		}
-
-		let webResource = incremental ? chats.nextPage(withQuery: query) : chats.firstPage(withQuery: query)
-		
-		weak var weakSelf = self
-		latestTask = webservice.load(webResource) {
-			
-			(newChats: PaginatedCollection<Chat>?, error: Error?) in
-			guard let strongSelf = weakSelf else {return}
-			
-			strongSelf.latestTask = nil
-			
-			if var newChats = newChats {
-
-				var prependingChats: PaginatedCollection<Chat>?
-
-				if incremental {
-					prependingChats = newChats
-					newChats = strongSelf.chats.prepend(collection: newChats)
-				}
-				
-				strongSelf.chats = newChats
-				strongSelf.updateView(prependingChats: prependingChats)
-			}
-			else {
-				strongSelf.handle(error: error!)
-			}
-		}
 	}
 	
 	private func updateView(prependingChats: PaginatedCollection<Chat>?) {
@@ -116,12 +74,67 @@ class ChatsViewController: UITableViewController {
 		
 		tableListener.refreshEnabled = chats.pagination.nextPageAvailable
 	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 
-	private var chats = PaginatedCollection<Chat>(parentDomain: nil, id: nil, pagination: Pagination(limit: chatsHunkSize))
-	private var query = ""
+		if chats.items.count == 0 {
+			performRequest(incremental: false)
+		}
+	}
+	
+	@IBOutlet private weak var tableView: UITableView!
+	private var tableListener: ChatsTableListener!
+	
+	//MARK:- Actions
+	
+	@IBAction private func onAdd() {
+		
+	}
+	
+	//MARK:- Request
+	
+	private func performRequest(incremental: Bool) {
+		
+		/*
+		(Re-)starts chats request, either incremental or initial
+		*/
+		if let latestTask = latestTask {
+			latestTask.cancel()
+		}
+
+		let webResource = incremental ? chats.nextPage(withQuery: query) : chats.firstPage(withQuery: query)
+
+		latestTask = webservice.load(webResource) {
+
+			[weak self]
+			(newChats: PaginatedCollection<Chat>?, error: Error?) in
+			guard let strongSelf = self else {return}
+			
+			strongSelf.latestTask = nil
+			
+			if var newChats = newChats {
+
+				var prependingChats: PaginatedCollection<Chat>?
+
+				if incremental {
+					prependingChats = newChats
+					newChats = strongSelf.chats.prepend(collection: newChats)
+				}
+				
+				strongSelf.chats = newChats
+				strongSelf.updateView(prependingChats: prependingChats)
+			}
+			else {
+				strongSelf.handle(error: error!)
+			}
+		}
+	}
+	
 	private var latestTask: URLSessionDataTask?
 	
-	private var tableListener: ChatsTableListener!
+	private var chats = PaginatedCollection<Chat>(parentDomain: nil, id: nil, pagination: Pagination(limit: chatsHunkSize))
+	private var query = ""
 	
 	static private let chatsHunkSize = 10
 }

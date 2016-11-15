@@ -15,25 +15,26 @@ class AccountViewController: UITableViewController {
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
-		
-		weak var weakSelf = self
-		tableListener = TextFieldTableListener(item: info, preparingTable: tableView!) {
+
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
 			
+			[weak self]
 			(newInfo: AccountInfo) in
 			
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			strongSelf.info = newInfo
 		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		
-		weak var weakSelf = self
+
 		webservice.load(AccountInfo.me) {
+			
+			[weak self]
 			(result: AccountInfo?, error: Error?) in
 			
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			
 			if let newInfo = result {
 				
@@ -65,13 +66,13 @@ class AccountViewController: UITableViewController {
 private extension AccountViewController {
 	
 	@IBAction func onEdit() {
-		
-		weak var weakSelf = self
+
 		webservice.load(info.edit) {
-			
+
+			[weak self]
 			(result: Void?, error: Error?) in
 
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			guard let _ = result else {
 				strongSelf.handle(error: error!)
 				return

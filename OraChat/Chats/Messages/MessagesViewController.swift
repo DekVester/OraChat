@@ -43,11 +43,11 @@ class MessagesViewController: UITableViewController {
 		*/
 		let webResource = incremental ? messages.nextPage(withQuery: "") : messages.firstPage(withQuery: "")
 		
-		weak var weakSelf = self
 		networkTask = webservice.load(webResource) {
-			
+		
+			[weak self]
 			(newMessages: PaginatedCollection<Message>?, error: Error?) in
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			
 			strongSelf.networkTask = nil
 			
@@ -84,12 +84,12 @@ class MessagesViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 	
-		tableListener = MessagesTableListener(preparingTable: tableView!)
-		
-		weak var weakSelf = self
+		tableListener = MessagesTableListener(preparingTable: tableView)
+
 		tableListener.refresh = {
 			
-			guard let strongSelf = weakSelf else {return}
+			[weak self] in
+			guard let strongSelf = self else {return}
 			strongSelf.performRequest(incremental: true)
 		}
 		

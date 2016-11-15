@@ -17,12 +17,12 @@ class TextFieldTableListener<Representable: TextFieldTableRepresentable>: TableL
 
 		let rows = anItem.tableRepresentation()
 		super.init(items: rows, preparingTable: table)
-		
-		weak var weakSelf = self
-		
+
 		configure = {
-			
+
+			[weak self]
 			(cell: TextFieldTableCell, row: TextFieldTableRow, index: Int) in
+			guard let _ = self else {return}
 			
 			cell.label.text = row.title
 			cell.field.text = row.value
@@ -30,9 +30,9 @@ class TextFieldTableListener<Representable: TextFieldTableRepresentable>: TableL
 			
 			cell.change = {
 				
+				[weak self]
 				(newValue: String) in
-				
-				guard let strongSelf = weakSelf else {return}
+				guard let strongSelf = self else {return}
 				
 				let newRow = row.replaceValue(newValue: newValue)
 				strongSelf.items[index] = newRow

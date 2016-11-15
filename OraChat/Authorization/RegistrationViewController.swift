@@ -16,12 +16,12 @@ class RegistrationViewController: UITableViewController {
 		
 		super.viewDidLoad()
 
-		weak var weakSelf = self
-		tableListener = TextFieldTableListener(item: info, preparingTable: tableView!) {
-			
+		tableListener = TextFieldTableListener(item: info, preparingTable: tableView) {
+
+			[weak self]
 			(newInfo: AccountInfo) in
+			guard let strongSelf = self else {return}
 			
-			guard let strongSelf = weakSelf else {return}
 			strongSelf.info = newInfo
 		}
 	}
@@ -35,12 +35,11 @@ private extension RegistrationViewController {
 	
 	@IBAction func onRegister() {
 		
-		weak var weakSelf = self
 		webservice.load(info.register) {
-			
+		
+			[weak self]
 			(token: AuthorizationToken?, error: Error?) in
-			
-			guard let strongSelf = weakSelf else {return}
+			guard let strongSelf = self else {return}
 			
 			if let token = token {
 				

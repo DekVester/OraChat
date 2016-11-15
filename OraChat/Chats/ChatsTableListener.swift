@@ -49,9 +49,9 @@ class ChatsTableListener: TableListener<Chat, ChatTableCell>, UISearchBarDelegat
 	
 	//MARK:- Search Bar
 
-	typealias ChatsTableListenerSearch = (String) -> Void
+	typealias Search = (String) -> Void
 
-	var search: ChatsTableListenerSearch?
+	var search: Search?
 
 	/*
 	Consider to use this for search

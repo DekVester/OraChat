@@ -11,8 +11,8 @@ import UIKit
 
 class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-	typealias TableListenerConfigure = (Cell, Item, Int) -> Void
-	typealias TableListenerSelect = (Item, Int) -> Void
+	typealias Configure = (Cell, Item, Int) -> Void
+	typealias Select = (Item, Int) -> Void
 	
 	init(items someItems: [Item], preparingTable aTable: UITableView) {
 		
@@ -34,8 +34,8 @@ class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSourc
 		}
 	}
 	
-	var configure: TableListenerConfigure!
-	var select: TableListenerSelect?
+	var configure: Configure!
+	var select: Select?
 	
 	var refresh: (()->Void)?
 	
