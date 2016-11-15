@@ -33,7 +33,7 @@
         <scene sceneID="ap8-db-8MW">
             <objects>
                 <navigationController id="sLQ-Wj-Hb2" userLabel="Chats Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Chats" id="dF7-Hj-Y4b"/>
+                    <tabBarItem key="tabBarItem" title="Chats" image="first" selectedImage="first" id="dF7-Hj-Y4b"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hcm-n4-svT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,7 +168,7 @@
         <scene sceneID="rIJ-Sp-ZeB">
             <objects>
                 <navigationController id="EGc-rj-bfq" userLabel="Account Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" id="dCN-Pk-8AG"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="second" selectedImage="second" id="dCN-Pk-8AG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5k7-gk-OVV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -212,4 +212,8 @@
             <point key="canvasLocation" x="1706" y="692"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+    </resources>
 </document>
