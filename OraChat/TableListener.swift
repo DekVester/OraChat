@@ -13,6 +13,7 @@ class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSourc
 
 	typealias Configure = (Cell, Item, Int) -> Void
 	typealias Select = (Item, Int) -> Void
+	typealias Refresh = ()->Void
 	
 	init(items someItems: [Item], preparingTable aTable: UITableView) {
 		
@@ -37,7 +38,7 @@ class TableListener<Item, Cell: UITableViewCell>: NSObject, UITableViewDataSourc
 	var configure: Configure!
 	var select: Select?
 	
-	var refresh: (()->Void)?
+	var refresh: Refresh?
 	
 	var refreshEnabled = false {
 		

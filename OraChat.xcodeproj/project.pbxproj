@@ -28,6 +28,7 @@
 		32361D871DD51360001DC6AA /* TableListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D861DD51360001DC6AA /* TableListener.swift */; };
 		324F4EBC1DD8736B001A5915 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */; };
 		325078A21DDA440C0002805C /* CollectionRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325078A11DDA440C0002805C /* CollectionRequestable.swift */; };
+		32AFDEBD1DDB1B3600C5E912 /* CreateChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AFDEBC1DDB1B3600C5E912 /* CreateChatViewController.swift */; };
 		32C9842F1DD5CE250062FA44 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C9842D1DD5CE250062FA44 /* Authorization.storyboard */; };
 		32C984541DD5FF000062FA44 /* TextFieldTableListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9844F1DD5FF000062FA44 /* TextFieldTableListener.swift */; };
 		32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */; };
@@ -88,6 +89,7 @@
 		32361D861DD51360001DC6AA /* TableListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableListener.swift; sourceTree = "<group>"; };
 		324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		325078A11DDA440C0002805C /* CollectionRequestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRequestable.swift; sourceTree = "<group>"; };
+		32AFDEBC1DDB1B3600C5E912 /* CreateChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChatViewController.swift; sourceTree = "<group>"; };
 		32C9842E1DD5CE250062FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authorization.storyboard; sourceTree = "<group>"; };
 		32C9844F1DD5FF000062FA44 /* TextFieldTableListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableListener.swift; sourceTree = "<group>"; };
 		32C984501DD5FF000062FA44 /* TextFieldTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				3215F5C31DD6548600E05BDA /* ChatsTableListener.swift */,
 				3215F5C01DD6545E00E05BDA /* ChatTableCell.xib */,
 				3215F5BF1DD6545E00E05BDA /* ChatTableCell.swift */,
+				32AFDEBC1DDB1B3600C5E912 /* CreateChatViewController.swift */,
 				3215F5D01DD65E4700E05BDA /* Messages */,
 			);
 			path = Chats;
@@ -372,6 +375,7 @@
 				32361D871DD51360001DC6AA /* TableListener.swift in Sources */,
 				3215F5D71DD65E4700E05BDA /* MessageTableCell.swift in Sources */,
 				324F4EBC1DD8736B001A5915 /* JSONSerializable.swift in Sources */,
+				32AFDEBD1DDB1B3600C5E912 /* CreateChatViewController.swift in Sources */,
 				325078A21DDA440C0002805C /* CollectionRequestable.swift in Sources */,
 				32D024601DD8A9B50044871C /* Chat+Networking.swift in Sources */,
 				32C984551DD5FF000062FA44 /* TextFieldTableCell.swift in Sources */,

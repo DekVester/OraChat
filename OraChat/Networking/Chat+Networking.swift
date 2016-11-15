@@ -74,12 +74,18 @@ extension Chat: CollectionRequestable {
 		
 		guard let dateString = json["created"] as? String, let aCreationDate = DateFormatter.RFC3339.date(from: dateString) else {return nil}
 		
-		guard let lastMessageData = json["last_message"] as? JSONDictionary, let theLastMessage = Message(json: lastMessageData) else {return nil}
-		
 		id = anId
 		name = aName
 		creationDate = aCreationDate
-		lastMessage = theLastMessage
+		
+		if let lastMessageData = json["last_message"] as? JSONDictionary {
+			
+			guard let aMessage = Message(json: lastMessageData) else {return nil}
+			lastMessage = aMessage
+		}
+		else {
+			lastMessage = nil
+		}
 	}
 	
 	var json: JSONDictionary {

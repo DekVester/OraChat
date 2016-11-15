@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -57,9 +58,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dIt-ig-7dI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="dIt-ig-7dI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="JVB-we-JPh">
                                     <rect key="frame" x="0.0" y="64" width="375" height="44"/>
@@ -67,16 +67,33 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </searchBar>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgA-Ge-crU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgA-Ge-crU" userLabel="Add">
                                 <rect key="frame" x="308" y="562" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="onAdd" destination="iHF-gC-GVr" eventType="touchUpInside" id="s3k-xH-we2"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mGt-eD-lLo">
+                                <rect key="frame" x="178" y="373.5" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dIt-ig-7dI" secondAttribute="bottom" id="0DE-k4-POP"/>
+                            <constraint firstItem="mGt-eD-lLo" firstAttribute="centerY" secondItem="5nx-Ka-mOg" secondAttribute="centerY" constant="50" id="9W8-rT-kwO"/>
+                            <constraint firstItem="dIt-ig-7dI" firstAttribute="top" secondItem="5nx-Ka-mOg" secondAttribute="top" id="Bdq-W5-hY2"/>
+                            <constraint firstAttribute="trailing" secondItem="dIt-ig-7dI" secondAttribute="trailing" id="edc-iV-oNa"/>
+                            <constraint firstItem="mGt-eD-lLo" firstAttribute="centerX" secondItem="5nx-Ka-mOg" secondAttribute="centerX" id="gA8-JA-byO"/>
+                            <constraint firstItem="udC-oI-ie2" firstAttribute="top" secondItem="LgA-Ge-crU" secondAttribute="bottom" constant="34" id="kQb-Ok-mNb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LgA-Ge-crU" secondAttribute="trailing" constant="29" id="lvO-ha-g9D"/>
+                            <constraint firstItem="dIt-ig-7dI" firstAttribute="leading" secondItem="5nx-Ka-mOg" secondAttribute="leading" id="w60-rQ-Lf6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="OraChat" id="7Hh-Ar-s7B"/>
                     <connections>
                         <outlet property="tableView" destination="dIt-ig-7dI" id="sB0-l2-mpN"/>
+                        <outlet property="waitView" destination="mGt-eD-lLo" id="hBR-PL-xLC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6K-CV-Tzs" userLabel="First Responder" sceneMemberID="firstResponder"/>

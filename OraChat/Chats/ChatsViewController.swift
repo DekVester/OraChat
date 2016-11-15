@@ -35,7 +35,7 @@ class ChatsViewController: UIViewController {
 			
 			[weak self] in
 			guard let strongSelf = self else {return}
-			strongSelf.performRequest(incremental: true)
+			strongSelf.load(incremental: true)
 		}
 		
 		tableListener.search = {
@@ -45,13 +45,21 @@ class ChatsViewController: UIViewController {
 			guard let strongSelf = self else {return}
 			
 			strongSelf.query = aQuery
-			strongSelf.performRequest(incremental: false)
+			strongSelf.load(incremental: false)
 		}
 		
 		updateView(prependingChats: nil)
 	}
 	
 	private func updateView(prependingChats: PaginatedCollection<Chat>?) {
+		
+		guard isViewLoaded else {return}
+		
+		updateTableView(prependingChats: prependingChats)
+		updateWaitView()
+	}
+	
+	private func updateTableView(prependingChats: PaginatedCollection<Chat>?) {
 		
 		guard isViewLoaded else {return}
 		
@@ -75,43 +83,98 @@ class ChatsViewController: UIViewController {
 		tableListener.refreshEnabled = chats.pagination.nextPageAvailable
 	}
 	
+	private func updateWaitView() {
+	
+		guard isViewLoaded else {return}
+		
+		if postingTasks.count > 0 && !waitView.isAnimating {
+			waitView.startAnimating()
+		}
+		else if postingTasks.count == 0 && waitView.isAnimating {
+			waitView.stopAnimating()
+		}
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		if chats.items.count == 0 {
-			performRequest(incremental: false)
+			load(incremental: false)
 		}
 	}
 	
 	@IBOutlet private weak var tableView: UITableView!
+	@IBOutlet private weak var waitView: UIActivityIndicatorView!
+	
 	private var tableListener: ChatsTableListener!
 	
 	//MARK:- Actions
 	
 	@IBAction private func onAdd() {
 		
+		let createChatVC = CreateChatTempHelper.controller {
+			
+			[weak self]
+			creatingChat in
+			guard let strongSelf = self else {return}
+			
+			strongSelf.create(chat: creatingChat)
+		}
+		
+//		show(createChatVC, sender: nil)
+		present(createChatVC, animated: true, completion: nil)
 	}
 	
-	//MARK:- Request
+	//MARK:- Requests
 	
-	private func performRequest(incremental: Bool) {
+	private func create(chat creatingChat: Chat) {
+
+		let postNewChat = chats.new(item: creatingChat)
+		
+		var task: URLSessionDataTask!
+		task = webservice.load(postNewChat) {
+			
+			[weak self]
+			(newChat: Chat?, error: Error?) in
+			guard let strongSelf = self else {return}
+			
+			if let index = strongSelf.postingTasks.index(of: task!) {
+				strongSelf.postingTasks.remove(at: index)
+			}
+			
+			if let chat = newChat {
+				
+				let newChats = strongSelf.chats.append(item: chat)
+				strongSelf.chats = newChats
+				
+				strongSelf.updateTableView(prependingChats: nil)
+			}
+			else {
+				strongSelf.handle(error: error!)
+			}
+		}
+		
+		postingTasks.append(task)
+	}
+	
+	private func load(incremental: Bool) {
 		
 		/*
 		(Re-)starts chats request, either incremental or initial
 		*/
-		if let latestTask = latestTask {
-			latestTask.cancel()
+		if let loadingTask = loadingTask {
+			loadingTask.cancel()
 		}
 
 		let webResource = incremental ? chats.nextPage(withQuery: query) : chats.firstPage(withQuery: query)
 
-		latestTask = webservice.load(webResource) {
+		loadingTask = webservice.load(webResource) {
 
 			[weak self]
 			(newChats: PaginatedCollection<Chat>?, error: Error?) in
 			guard let strongSelf = self else {return}
 			
-			strongSelf.latestTask = nil
+			strongSelf.loadingTask = nil
 			
 			if var newChats = newChats {
 
@@ -123,7 +186,7 @@ class ChatsViewController: UIViewController {
 				}
 				
 				strongSelf.chats = newChats
-				strongSelf.updateView(prependingChats: prependingChats)
+				strongSelf.updateTableView(prependingChats: prependingChats)
 			}
 			else {
 				strongSelf.handle(error: error!)
@@ -131,7 +194,14 @@ class ChatsViewController: UIViewController {
 		}
 	}
 	
-	private var latestTask: URLSessionDataTask?
+	private var postingTasks: [URLSessionDataTask] = [] {
+	
+		didSet {
+			updateWaitView()
+		}
+	}
+	
+	private var loadingTask: URLSessionDataTask?
 	
 	private var chats = PaginatedCollection<Chat>(parentDomain: nil, id: nil, pagination: Pagination(limit: chatsHunkSize))
 	private var query = ""

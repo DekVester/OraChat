@@ -14,4 +14,13 @@ struct Chat {
 	let name: String
 	let creationDate: Date?
 	let lastMessage: Message?
+	
+	init(name aName: String) {
+		
+		name = aName
+		
+		id = nil
+		creationDate = nil
+		lastMessage = nil
+	}
 }

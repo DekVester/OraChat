@@ -120,7 +120,7 @@ final class Webservice {
 				return
 			}
 
-			guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode == 200 else {
+			guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200 ... 299 ~= statusCode else {
 			
 				let error = NSError(domain: Webservice.errorDomain, code: 0, userInfo: [NSLocalizedFailureReasonErrorKey: NSLocalizedString("Network error", comment: "Webservice")])
 				completion(nil, error)

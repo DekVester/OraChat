@@ -25,12 +25,24 @@ struct PaginatedCollection<Item> {
 		pagination = aPagination
 	}
 	
+	func append(item: Item) -> PaginatedCollection<Item> {
+		return PaginatedCollection<Item>(original: self, appendingItem: item)
+	}
+	
 	func append(collection: PaginatedCollection<Item>) -> PaginatedCollection<Item> {
 		return PaginatedCollection<Item>(left: self, right: collection)
 	}
 	
 	func prepend(collection: PaginatedCollection<Item>) -> PaginatedCollection<Item> {
 		return PaginatedCollection<Item>(left: collection, right: self)
+	}
+	
+	private init(original: PaginatedCollection<Item>, appendingItem item: Item) {
+		
+		parentDomain = original.parentDomain
+		id = original.id
+		items = original.items + [item]
+		pagination = original.pagination
 	}
 	
 	private init(left: PaginatedCollection<Item>, right: PaginatedCollection<Item>) {
