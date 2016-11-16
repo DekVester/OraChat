@@ -42,6 +42,7 @@
 		32B746311DDB9C99002D7C88 /* Chat+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B746301DDB9C99002D7C88 /* Chat+View.swift */; };
 		32B746331DDB9F68002D7C88 /* Message+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B746321DDB9F68002D7C88 /* Message+View.swift */; };
 		32C9842F1DD5CE250062FA44 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C9842D1DD5CE250062FA44 /* Authorization.storyboard */; };
+		32CAED591DDC8C5000CE9787 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CAED581DDC8C5000CE9787 /* AccountViewController.swift */; };
 		32D024601DD8A9B50044871C /* Chat+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0245F1DD8A9B50044871C /* Chat+Networking.swift */; };
 		32D024631DD8AA460044871C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024611DD8AA460044871C /* Chat.swift */; };
 		32D024641DD8AA460044871C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024621DD8AA460044871C /* Message.swift */; };
@@ -50,7 +51,6 @@
 		32D0246C1DD8C94B0044871C /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0246B1DD8C94B0044871C /* Pagination.swift */; };
 		32D0246E1DD8C9750044871C /* PaginatedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D0246D1DD8C9750044871C /* PaginatedCollection.swift */; };
 		32D024741DD8FF750044871C /* PaginatedCollection+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D024731DD8FF750044871C /* PaginatedCollection+Networking.swift */; };
-		32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD0791DD6466B0056A2CD /* AccountViewController.swift */; };
 		32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */; };
 		32FFD0811DD646DB0056A2CD /* AuthenticationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD07D1DD646DB0056A2CD /* AuthenticationInfo.swift */; };
 		32FFD0851DD647050056A2CD /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FFD0831DD647050056A2CD /* AuthenticationViewController.swift */; };
@@ -107,6 +107,7 @@
 		32B746301DDB9C99002D7C88 /* Chat+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chat+View.swift"; sourceTree = "<group>"; };
 		32B746321DDB9F68002D7C88 /* Message+View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+View.swift"; sourceTree = "<group>"; };
 		32C9842E1DD5CE250062FA44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authorization.storyboard; sourceTree = "<group>"; };
+		32CAED581DDC8C5000CE9787 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		32D0245F1DD8A9B50044871C /* Chat+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chat+Networking.swift"; sourceTree = "<group>"; };
 		32D024611DD8AA460044871C /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		32D024621DD8AA460044871C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		32D0246B1DD8C94B0044871C /* Pagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
 		32D0246D1DD8C9750044871C /* PaginatedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedCollection.swift; sourceTree = "<group>"; };
 		32D024731DD8FF750044871C /* PaginatedCollection+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaginatedCollection+Networking.swift"; sourceTree = "<group>"; };
-		32FFD0791DD6466B0056A2CD /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		32FFD07B1DD646DB0056A2CD /* AccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		32FFD07D1DD646DB0056A2CD /* AuthenticationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationInfo.swift; sourceTree = "<group>"; };
 		32FFD0831DD647050056A2CD /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				32361D5C1DD50D24001DC6AA /* AppDelegate.swift */,
 				32361D621DD50D25001DC6AA /* Main.storyboard */,
 				3215F5BC1DD6521000E05BDA /* Chats */,
-				32FFD0791DD6466B0056A2CD /* AccountViewController.swift */,
+				32CAED571DDC8C5000CE9787 /* Account */,
 				32C9841F1DD5CD860062FA44 /* Authorization */,
 				32FFD0741DD646100056A2CD /* Model */,
 				320EEFAE1DD754F500AB7BA2 /* Networking */,
@@ -295,6 +295,14 @@
 				32FFD0841DD647050056A2CD /* RegistrationViewController.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		32CAED571DDC8C5000CE9787 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				32CAED581DDC8C5000CE9787 /* AccountViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		32FFD0741DD646100056A2CD /* Model */ = {
@@ -421,7 +429,6 @@
 			files = (
 				327B513E1DDC8A9000A0F08B /* MessageTableCell.swift in Sources */,
 				32D024741DD8FF750044871C /* PaginatedCollection+Networking.swift in Sources */,
-				32FFD07A1DD6466B0056A2CD /* AccountViewController.swift in Sources */,
 				32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */,
 				324F4EBC1DD8736B001A5915 /* JSONSerializable.swift in Sources */,
 				32AFDEBD1DDB1B3600C5E912 /* CreateChatViewController.swift in Sources */,
@@ -446,6 +453,7 @@
 				323479881DDB611E001BA2CB /* DateFormatter+View.swift in Sources */,
 				320EEFB01DD754F500AB7BA2 /* Webservice.swift in Sources */,
 				32B7462C1DDB8AC6002D7C88 /* AccountInfo+View.swift in Sources */,
+				32CAED591DDC8C5000CE9787 /* AccountViewController.swift in Sources */,
 				327B51401DDC8A9000A0F08B /* MessagesTableListener.swift in Sources */,
 				320EEFB61DD7741400AB7BA2 /* UIViewController+Networking.swift in Sources */,
 				32D0246E1DD8C9750044871C /* PaginatedCollection.swift in Sources */,
