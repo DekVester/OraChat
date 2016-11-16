@@ -36,5 +36,5 @@ class ChatTests: XCTestCase {
 		XCTAssertEqual(stringJson!, ["name": test.name], "invalid json data")
 	}
 	
-	static private let name = "John Doe"
+	static private let name = "A test chat"
 }
