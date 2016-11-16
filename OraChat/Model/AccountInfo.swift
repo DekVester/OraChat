@@ -20,4 +20,11 @@ struct AccountInfo {
 		name = ""
 		passwordConfirmation = ""
 	}
+	
+	init(authenticationInfo info: AuthenticationInfo, name aName: String, passwordConfirmation confirmation: String) {
+		
+		authenticationInfo = info
+		name = aName
+		passwordConfirmation = confirmation
+	}
 }

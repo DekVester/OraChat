@@ -11,30 +11,6 @@ import Foundation
 
 extension Chat: CollectionRequestable {
 
-	/*
-	{
-		"id": 1,
-		"user_id": 1,
-		"name": "A Chat",
-		"created": "2016-07-12T04:30:21Z",
-		"user": {
-			"id": 1,
-			"name": "Andre"
-		},
-		"last_message": {
-			"id": 2,
-			"user_id": 2,
-			"chat_id": 1,
-			"message": "Oh hey!",
-			"created": "2016-07-16T06:30:21Z",
-			"user": {
-				"id": 2,
-				"name": "Dan"
-			}
-		}
-	}
-	*/
-
 	static var dateParseCnt = 0//Remove this when the backend side dates-related flaw is fixed (see the parsing initializer below)
 	
 	init?(json: JSONDictionary) {

@@ -19,33 +19,33 @@ class WebServiceTests: XCTestCase {
         webService = Webservice()
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testThatRequestedResourceIsCorrect() {
 
+		/*
+		Given
+		*/
+		let testMethod: HttpMethod<Any> = .put(["testBodyKey" : "testBodyValue"] as JSONDictionary)
 		let testPath = "testpath"
-
-		let testBody: JSONDictionary = ["testBodyKey" : "testBodyValue"]
-		let testMethod: HttpMethod<Any> = .put(testBody)
 		
 		let resource = WebResource<Int>(path: testPath, method: testMethod) {
 			_ in
 			return Optional<Int>.none
 		}
 		
+		/*
+		When
+		*/
 		let dataTask = webService.load(resource) {(_, _) in}
 
+		/*
+		Then
+		*/
 		let request = dataTask.originalRequest
 		let url = request?.url
+		
 		XCTAssertNotNil(request, "resource hasn't been requested")
 		XCTAssertNotNil(url, "resource url that has been requested is invalid")
-
 		XCTAssertEqual(request?.httpMethod, testMethod.text, "resource has been requested using a wrong http method")
 		XCTAssertTrue(url!.path.contains(testPath), "resource path that has been requested is wrong")
-		
-//		XCTestExpectation
     }
 }

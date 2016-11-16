@@ -10,21 +10,7 @@ import Foundation
 
 
 extension Message: CollectionRequestable {
-	
-	/*
-	{
-		"id": 2,
-		"user_id": 2,
-		"chat_id": 1,
-		"message": "Oh hey!",
-		"created": "2016-07-16T06:30:21Z",
-		"user": {
-			"id": 2,
-			"name": "Dan"
-		}
-	}
-	*/
-	
+
 	init?(json: JSONDictionary) {
 		
 		guard let anId = json["id"] as? Int else {return nil}// - Backend always gives the same ID here - that's why this is not used now
