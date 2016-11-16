@@ -1,5 +1,5 @@
 //
-//  Webservice.swift
+//  WebService.swift
 //  OraChat
 //
 //  Created by Igor Vasilev on 11/12/16.
@@ -12,81 +12,6 @@ import UIKit
 
 typealias JSONDictionary = [String: Any]
 
-
-enum HttpMethod<Body> {
-	case get
-	case post(Body)
-	case put(Body)
-}
-
-extension HttpMethod {
-	var text: String {
-		switch self {
-		case .get: return "GET"
-		case .post: return "POST"
-		case .put: return "PUT"
-		}
-	}
-	
-	func map<B>(f: (Body) -> B) -> HttpMethod<B> {
-		switch self {
-		case .get: return .get
-		case .post(let body):
-			return .post(f(body))
-		case .put(let body):
-			return .put(f(body))
-		}
-	}
-}
-
-
-struct WebResource<A> {
-	let urlPath: String
-	let method: HttpMethod<Data>
-	let parse: (Data) -> A?
-}
-
-extension WebResource {
-	
-	init(path: String, method jsonBodyMethod: HttpMethod<Any> = .get, parseJson: @escaping (Any) -> A?) {
-		urlPath = path
-		method = jsonBodyMethod.map {
-			json in
-			try! JSONSerialization.data(withJSONObject: json, options: [])
-		}
-		parse = {
-			data in
-			let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-			return json.flatMap(parseJson)
-		}
-	}
-}
-
-extension URLRequest {
-	
-	init<A>(resource: WebResource<A>, baseUrl: URL) {
-		
-		let path = baseUrl.absoluteString + resource.urlPath
-		let url = URL(string: path)!
-//		let url = baseUrl.appendingPathComponent(path)
-		self.init(url: url)
-		
-		/*
-		JSON content
-		*/
-		setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-		setValue("application/json", forHTTPHeaderField: "Accept")
-		
-		httpMethod = resource.method.text
-		
-		switch resource.method {
-		case let .post(data), let .put(data):
-			httpBody = data
-		default:
-			break
-		}
-	}
-}
 
 final class Webservice {
 	
@@ -104,9 +29,6 @@ final class Webservice {
 		if let token = authorizationToken {
 			request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 		}
-//		else {
-//			request.addValue("", forHTTPHeaderField: "Authorization")
-//		}
 
 		let task = session.dataTask(with: request) {
 			

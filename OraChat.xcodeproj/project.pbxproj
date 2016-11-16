@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		320EEFB01DD754F500AB7BA2 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFAF1DD754F500AB7BA2 /* Webservice.swift */; };
+		320EEFB01DD754F500AB7BA2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFAF1DD754F500AB7BA2 /* WebService.swift */; };
 		320EEFB21DD7551400AB7BA2 /* AccountInfo+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */; };
 		320EEFB41DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */; };
 		320EEFB61DD7741400AB7BA2 /* UIViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */; };
@@ -19,9 +19,12 @@
 		32361D641DD50D25001DC6AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32361D621DD50D25001DC6AA /* Main.storyboard */; };
 		32361D661DD50D25001DC6AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32361D651DD50D25001DC6AA /* Assets.xcassets */; };
 		32361D691DD50D25001DC6AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32361D671DD50D25001DC6AA /* LaunchScreen.storyboard */; };
-		32361D741DD50D25001DC6AA /* OraChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D731DD50D25001DC6AA /* OraChatTests.swift */; };
+		32361D741DD50D25001DC6AA /* WebServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32361D731DD50D25001DC6AA /* WebServiceTests.swift */; };
 		324F4EBC1DD8736B001A5915 /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */; };
 		325078A21DDA440C0002805C /* CollectionRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325078A11DDA440C0002805C /* CollectionRequestable.swift */; };
+		327A06D71DDCB6DD00212A1F /* WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A06D61DDCB6DD00212A1F /* WebResource.swift */; };
+		327A06D91DDCB73500212A1F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A06D81DDCB73500212A1F /* HTTPMethod.swift */; };
+		327A06DB1DDCB76C00212A1F /* URLRequest+WebResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A06DA1DDCB76C00212A1F /* URLRequest+WebResource.swift */; };
 		327B513E1DDC8A9000A0F08B /* MessageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B513B1DDC8A9000A0F08B /* MessageTableCell.swift */; };
 		327B513F1DDC8A9000A0F08B /* MessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 327B513C1DDC8A9000A0F08B /* MessageTableCell.xib */; };
 		327B51401DDC8A9000A0F08B /* MessagesTableListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327B513D1DDC8A9000A0F08B /* MessagesTableListener.swift */; };
@@ -68,7 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		320EEFAF1DD754F500AB7BA2 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		320EEFAF1DD754F500AB7BA2 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		320EEFB11DD7551400AB7BA2 /* AccountInfo+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountInfo+Networking.swift"; sourceTree = "<group>"; };
 		320EEFB31DD75E3200AB7BA2 /* AuthenticationInfo+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AuthenticationInfo+Networking.swift"; sourceTree = "<group>"; };
 		320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Networking.swift"; sourceTree = "<group>"; };
@@ -83,10 +86,13 @@
 		32361D681DD50D25001DC6AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32361D6A1DD50D25001DC6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32361D6F1DD50D25001DC6AA /* OraChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OraChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		32361D731DD50D25001DC6AA /* OraChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OraChatTests.swift; sourceTree = "<group>"; };
+		32361D731DD50D25001DC6AA /* WebServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceTests.swift; sourceTree = "<group>"; };
 		32361D751DD50D25001DC6AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializable.swift; sourceTree = "<group>"; };
 		325078A11DDA440C0002805C /* CollectionRequestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionRequestable.swift; sourceTree = "<group>"; };
+		327A06D61DDCB6DD00212A1F /* WebResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebResource.swift; sourceTree = "<group>"; };
+		327A06D81DDCB73500212A1F /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		327A06DA1DDCB76C00212A1F /* URLRequest+WebResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+WebResource.swift"; sourceTree = "<group>"; };
 		327B513B1DDC8A9000A0F08B /* MessageTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableCell.swift; sourceTree = "<group>"; };
 		327B513C1DDC8A9000A0F08B /* MessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableCell.xib; sourceTree = "<group>"; };
 		327B513D1DDC8A9000A0F08B /* MessagesTableListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableListener.swift; sourceTree = "<group>"; };
@@ -153,7 +159,10 @@
 				320EEFB51DD7741400AB7BA2 /* UIViewController+Networking.swift */,
 				324F4EBB1DD8736B001A5915 /* JSONSerializable.swift */,
 				32D024651DD8B3900044871C /* DateFormatter+RFC3339.swift */,
-				320EEFAF1DD754F500AB7BA2 /* Webservice.swift */,
+				320EEFAF1DD754F500AB7BA2 /* WebService.swift */,
+				327A06D61DDCB6DD00212A1F /* WebResource.swift */,
+				327A06D81DDCB73500212A1F /* HTTPMethod.swift */,
+				327A06DA1DDCB76C00212A1F /* URLRequest+WebResource.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -232,7 +241,7 @@
 		32361D721DD50D25001DC6AA /* OraChatTests */ = {
 			isa = PBXGroup;
 			children = (
-				32361D731DD50D25001DC6AA /* OraChatTests.swift */,
+				32361D731DD50D25001DC6AA /* WebServiceTests.swift */,
 				32361D751DD50D25001DC6AA /* Info.plist */,
 			);
 			path = OraChatTests;
@@ -427,8 +436,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				327A06D71DDCB6DD00212A1F /* WebResource.swift in Sources */,
 				327B513E1DDC8A9000A0F08B /* MessageTableCell.swift in Sources */,
+				327A06D91DDCB73500212A1F /* HTTPMethod.swift in Sources */,
 				32D024741DD8FF750044871C /* PaginatedCollection+Networking.swift in Sources */,
+				327A06DB1DDCB76C00212A1F /* URLRequest+WebResource.swift in Sources */,
 				32FFD07F1DD646DB0056A2CD /* AccountInfo.swift in Sources */,
 				324F4EBC1DD8736B001A5915 /* JSONSerializable.swift in Sources */,
 				32AFDEBD1DDB1B3600C5E912 /* CreateChatViewController.swift in Sources */,
@@ -451,7 +463,7 @@
 				3215F5BE1DD6524800E05BDA /* ChatsViewController.swift in Sources */,
 				32B746331DDB9F68002D7C88 /* Message+View.swift in Sources */,
 				323479881DDB611E001BA2CB /* DateFormatter+View.swift in Sources */,
-				320EEFB01DD754F500AB7BA2 /* Webservice.swift in Sources */,
+				320EEFB01DD754F500AB7BA2 /* WebService.swift in Sources */,
 				32B7462C1DDB8AC6002D7C88 /* AccountInfo+View.swift in Sources */,
 				32CAED591DDC8C5000CE9787 /* AccountViewController.swift in Sources */,
 				327B51401DDC8A9000A0F08B /* MessagesTableListener.swift in Sources */,
@@ -474,7 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32361D741DD50D25001DC6AA /* OraChatTests.swift in Sources */,
+				32361D741DD50D25001DC6AA /* WebServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  OraChatTests.swift
+//  WebServiceTests.swift
 //  OraChatTests
 //
 //  Created by Igor Vasilev on 11/10/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import OraChat
 
-class OraChatTests: XCTestCase {
+class WebServiceTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,16 +21,22 @@ class OraChatTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testThatRequestedDomainIsCorrect() {
+
+//		let webservice = Webservice()
+//		let dataTask = webservice.load(webResource) {
+//			
+//			(result, error) in
+//		}
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+	
+//	func testThat
+	
+//    func testPerformanceExample() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
+	
 }
