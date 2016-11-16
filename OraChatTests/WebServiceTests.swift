@@ -9,11 +9,14 @@
 import XCTest
 @testable import OraChat
 
+
 class WebServiceTests: XCTestCase {
+	
+	var webService: Webservice!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        webService = Webservice()
     }
     
     override func tearDown() {
@@ -21,22 +24,28 @@ class WebServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testThatRequestedDomainIsCorrect() {
+    func testThatRequestedResourceIsCorrect() {
 
-//		let webservice = Webservice()
-//		let dataTask = webservice.load(webResource) {
-//			
-//			(result, error) in
-//		}
+		let testPath = "testpath"
+
+		let testBody: JSONDictionary = ["testBodyKey" : "testBodyValue"]
+		let testMethod: HttpMethod<Any> = .put(testBody)
+		
+		let resource = WebResource<Int>(path: testPath, method: testMethod) {
+			_ in
+			return Optional<Int>.none
+		}
+		
+		let dataTask = webService.load(resource) {(_, _) in}
+
+		let request = dataTask.originalRequest
+		let url = request?.url
+		XCTAssertNotNil(request, "resource hasn't been requested")
+		XCTAssertNotNil(url, "resource url that has been requested is invalid")
+
+		XCTAssertEqual(request?.httpMethod, testMethod.text, "resource has been requested using a wrong http method")
+		XCTAssertTrue(url!.path.contains(testPath), "resource path that has been requested is wrong")
+		
+//		XCTestExpectation
     }
-	
-//	func testThat
-	
-//    func testPerformanceExample() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//        }
-//    }
-	
 }
